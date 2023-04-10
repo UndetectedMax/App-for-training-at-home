@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">CourseWork</string>
     <string name="trainingIcon">Training</string>
-    <string name="addTrainingIcon">Add training</string>
-    <string name="statisticIcon">Statistic</string>
+    <string name="addTrainingIcon">Add train</string>
+    <string name="statisticIcon">Stats</string>
     <string name="settingsIcon">Settings</string>
 
 
