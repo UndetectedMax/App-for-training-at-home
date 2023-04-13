@@ -44,14 +44,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     implementation "androidx.fragment:fragment-ktx:1.5.6"
-    // Navigation
-    implementation "androidx.navigation:navigation-fragment-ktx:2.6.0-alpha09"
-    implementation "androidx.navigation:navigation-ui-ktx:2.6.0-alpha09"
-
-    // Dynamic Feature Module Support
-    implementation "androidx.navigation:navigation-dynamic-features-fragment:2.6.0-alpha09"
-
-    // Testing Navigation
-    androidTestImplementation "androidx.navigation:navigation-testing:2.6.0-alpha09"
+    implementation "androidx.navigation:navigation-fragment-ktx:2.5.3"
+    implementation "androidx.navigation:navigation-ui-ktx:2.5.3"
 
 }
