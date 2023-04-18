@@ -19,9 +19,9 @@ class TrainingsScreen : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentTrainingsScreenBinding.inflate(layoutInflater, container, false)
-        binding.recyclerView.findViewById<RecyclerView>(R.id.recyclerView)
-        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        binding.recyclerView.adapter = RVAdaptor(fetchData())
+        val recyclerView: RecyclerView = binding.recyclerView
+        recyclerView.layoutManager = LinearLayoutManager(this.context)
+        recyclerView.adapter = RVAdaptor(fetchData())
         return binding.root
     }
 
