@@ -18,10 +18,19 @@
         android:id="@+id/train_icon"
         android:name="com.example.coursework.screens.trainings.TrainingsScreen"
         android:label="fragment_trainings_screen"
-        tools:layout="@layout/fragment_trainings_screen" />
+        tools:layout="@layout/fragment_trainings_screen" >
+        <action
+            android:id="@+id/action_train_icon_to_trainDetails"
+            app:destination="@id/trainDetails" />
+    </fragment>
     <fragment
         android:id="@+id/add_training_icon"
         android:name="com.example.coursework.screens.adding.AddTraining"
         android:label="fragment_addtraining"
         tools:layout="@layout/fragment_addtraining" />
+    <fragment
+        android:id="@+id/trainDetails"
+        android:name="com.example.coursework.screens.trainings.TrainDetails"
+        android:label="fragment_train_details"
+        tools:layout="@layout/fragment_train_details" />
 </navigation>

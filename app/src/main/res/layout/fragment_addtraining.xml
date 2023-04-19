@@ -11,7 +11,7 @@
         android:id="@+id/button3"
         android:layout_width="173dp"
         android:layout_height="70dp"
-        android:text="Add training"
+        android:text="@string/addTrainingIcon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
