@@ -20,16 +20,18 @@ class TrainingsScreen : Fragment() {
         binding = FragmentTrainingsScreenBinding.inflate(layoutInflater, container, false)
         val recyclerView: RecyclerView = binding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(this.context)
-        recyclerView.adapter = RVAdaptor(fetchData(),this.requireContext()) {
+        recyclerView.adapter = RVAdaptor(fetchData(), this.requireContext()) {
             val args = Bundle()
-            args.putString("text",it)
+            args.putString("text", it)
             view?.let { it1 ->
-                Navigation.findNavController(it1).navigate(R.id.action_train_icon_to_trainDetails,args)
+                Navigation.findNavController(it1)
+                    .navigate(R.id.action_train_icon_to_trainDetails, args)
             }
         }
 
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
     }

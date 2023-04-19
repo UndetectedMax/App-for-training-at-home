@@ -13,21 +13,16 @@ import com.example.coursework.databinding.FragmentTrainDetailsBinding
 
 class TrainDetails : Fragment() {
 
-    private lateinit var binding:FragmentTrainDetailsBinding
+    private lateinit var binding: FragmentTrainDetailsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         binding = FragmentTrainDetailsBinding.inflate(layoutInflater, container, false)
-
-        val title = arguments?.getString("text",).toString()
-
+        val title = arguments?.getString("text").toString()
         binding.trainName.text = title
-
-        Toast.makeText(context,title,Toast.LENGTH_SHORT).show()
-
+        Toast.makeText(context, title, Toast.LENGTH_SHORT).show()
         return binding.root
     }
 
