@@ -27,10 +27,39 @@
         android:id="@+id/add_training_icon"
         android:name="com.example.coursework.screens.adding.AddTraining"
         android:label="fragment_addtraining"
-        tools:layout="@layout/fragment_addtraining" />
+        tools:layout="@layout/fragment_addtraining" >
+        <action
+            android:id="@+id/action_add_training_icon_to_addTrainingByCode"
+            app:destination="@id/addTrainingByCode" />
+        <action
+            android:id="@+id/action_add_training_icon_to_addOwnTraining"
+            app:destination="@id/addOwnTraining" />
+    </fragment>
     <fragment
         android:id="@+id/trainDetails"
         android:name="com.example.coursework.screens.trainings.TrainDetails"
         android:label="fragment_train_details"
-        tools:layout="@layout/fragment_train_details" />
+        tools:layout="@layout/fragment_train_details" >
+        <action
+            android:id="@+id/action_trainDetails_to_train_icon"
+            app:destination="@id/train_icon" />
+    </fragment>
+    <fragment
+        android:id="@+id/addTrainingByCode"
+        android:name="com.example.coursework.screens.adding.AddTrainingByCode"
+        android:label="fragment_add_training_by_code"
+        tools:layout="@layout/fragment_add_training_by_code" >
+        <action
+            android:id="@+id/action_addTrainingByCode_to_add_training_icon"
+            app:destination="@id/add_training_icon" />
+    </fragment>
+    <fragment
+        android:id="@+id/addOwnTraining"
+        android:name="com.example.coursework.screens.adding.AddOwnTraining"
+        android:label="fragment_add_own_training"
+        tools:layout="@layout/fragment_add_own_training" >
+        <action
+            android:id="@+id/action_addOwnTraining_to_add_training_icon"
+            app:destination="@id/add_training_icon" />
+    </fragment>
 </navigation>
