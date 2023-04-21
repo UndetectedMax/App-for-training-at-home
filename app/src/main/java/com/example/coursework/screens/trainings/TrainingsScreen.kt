@@ -28,7 +28,6 @@ class TrainingsScreen : Fragment() {
                     .navigate(R.id.action_train_icon_to_trainDetails, args)
             }
         }
-
         return binding.root
     }
 

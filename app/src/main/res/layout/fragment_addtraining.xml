@@ -9,8 +9,8 @@
 
     <Button
         android:id="@+id/addOwnTrainingButton"
-        android:layout_width="173dp"
-        android:layout_height="70dp"
+        android:layout_width="244dp"
+        android:layout_height="65dp"
         android:text="@string/addTrainingIcon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,9 +20,9 @@
 
     <Button
         android:id="@+id/addTrainByCode"
-        android:layout_width="173dp"
-        android:layout_height="70dp"
-        android:text="Button"
+        android:layout_width="240dp"
+        android:layout_height="72dp"
+        android:text="@string/add_train_by_code"
         app:layout_constraintBottom_toTopOf="@+id/addOwnTrainingButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

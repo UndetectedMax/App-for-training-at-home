@@ -15,6 +15,7 @@ class AddOwnTraining : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentAddOwnTrainingBinding.inflate(layoutInflater, container, false)
+
         return binding.root
     }
 

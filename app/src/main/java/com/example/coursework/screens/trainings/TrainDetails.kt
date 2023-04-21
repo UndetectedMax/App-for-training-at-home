@@ -18,7 +18,7 @@ class TrainDetails : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentTrainDetailsBinding.inflate(layoutInflater, container, false)
         val title = arguments?.getString("text").toString()
         binding.trainName.text = title

@@ -15,8 +15,9 @@ class AddTraining : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentAddtrainingBinding.inflate(layoutInflater, container, false)
+
 
         binding.addTrainByCode.setOnClickListener {
             val args = Bundle()

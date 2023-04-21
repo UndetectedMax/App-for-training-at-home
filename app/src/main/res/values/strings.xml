@@ -1,8 +1,14 @@
 <resources>
-    <string name="app_name">CourseWork</string>
+    <string name="app_name">Be in form!</string>
     <string name="trainingIcon">Training</string>
     <string name="addTrainingIcon">Add train</string>
     <string name="statisticIcon">Stats</string>
     <string name="settingsIcon">Settings</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="enter_code_here">Enter code here!</string>
+    <string name="submit_button">Submit!</string>
+    <string name="own_train_name">Here will be your own training`s name</string>
+    <string name="own_training_description">Here will be the description of your own training</string>
+    <string name="add_train_by_code">Add train by code!</string>
+    <string name="code_message">Here will be the message of the chosen training!</string>
 </resources>
