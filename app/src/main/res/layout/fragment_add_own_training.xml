@@ -1,14 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".screens.adding.AddOwnTraining">
 
-    <!-- TODO: Update blank fragment layout -->
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hi own training" />
+        android:id="@+id/nameOfOwnTrain"
+        android:layout_width="274dp"
+        android:layout_height="28dp"
+        android:text="@string/own_train_name"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.346" />
+
+    <TextView
+        android:id="@+id/descOfOwnTrain"
+        android:layout_width="348dp"
+        android:layout_height="242dp"
+        android:layout_marginBottom="212dp"
+        android:text="@string/own_training_description"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameOfOwnTrain"
+        app:layout_constraintVertical_bias="1.0" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

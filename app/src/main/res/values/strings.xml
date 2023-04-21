@@ -5,4 +5,9 @@
     <string name="statisticIcon">Stats</string>
     <string name="settingsIcon">Settings</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="enter_code_here">Enter code here!</string>
+    <string name="submit_button">Submit!</string>
+    <string name="own_train_name">Here will be your own training`s name</string>
+    <string name="own_training_description">Here will be the description of your own training</string>
+    <string name="add_your_own_train">Add your own train!</string>
 </resources>
