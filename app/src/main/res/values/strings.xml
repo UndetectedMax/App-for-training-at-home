@@ -11,4 +11,7 @@
     <string name="own_training_description">Here will be the description of your own training</string>
     <string name="add_train_by_code">Add train by code!</string>
     <string name="code_message">Here will be the message of the chosen training!</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+    <string name="be_in_form">Be in Form!</string>
 </resources>
