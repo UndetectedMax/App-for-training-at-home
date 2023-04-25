@@ -6,7 +6,7 @@
     android:layout_margin="18dp">
 
     <TextView
-        android:id="@+id/text"
+        android:id="@+id/recycler_view_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18sp"

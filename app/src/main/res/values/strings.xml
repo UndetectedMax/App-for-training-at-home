@@ -7,11 +7,14 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="enter_code_here">Enter code here!</string>
     <string name="submit_button">Submit!</string>
-    <string name="own_train_name">Here will be your own training`s name</string>
-    <string name="own_training_description">Here will be the description of your own training</string>
+    <string name="own_train_name">Train`s name</string>
+    <string name="own_training_description">Train`s description</string>
     <string name="add_train_by_code">Add train by code!</string>
     <string name="code_message">Here will be the message of the chosen training!</string>
     <string name="open">open</string>
     <string name="close">close</string>
     <string name="be_in_form">Be in Form!</string>
+    <string name="work_in_progress">Information is pending</string>
+    <string name="Information">\n \n \t These are current app settings, which are not final.\n \t They will be added soon.</string>
+
 </resources>
