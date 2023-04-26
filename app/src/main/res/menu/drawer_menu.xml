@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/train_icon"
         android:enabled="true"
+        android:visible="true"
         android:icon="@drawable/trainings"
         android:title="@string/trainingIcon" />
     <item
         android:id="@+id/add_training_icon"
         android:enabled="true"
+        android:visible="true"
         android:icon="@drawable/new_training"
         android:title="@string/addTrainingIcon"/>
     <item
         android:id="@+id/statistics_icon"
         android:enabled="true"
+        android:visible="true"
         android:icon="@drawable/statistics_icon"
         android:title="@string/statisticIcon"/>
     <item
         android:id="@+id/settings_icon"
         android:enabled="true"
+        android:visible="true"
         android:icon="@drawable/app_settings"
         android:title="@string/settingsIcon"/>
 </menu>

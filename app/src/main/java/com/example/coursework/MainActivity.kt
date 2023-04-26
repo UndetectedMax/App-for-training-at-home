@@ -3,40 +3,48 @@ package com.example.coursework
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.NavController
+import androidx.navigation.ui.*
 
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.onNavDestinationSelected
+import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.coursework.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var  toggle: ActionBarDrawerToggle
+    private lateinit var navController: NavController
+    private lateinit var navHostFragment: NavHostFragment
+    private lateinit var drawerLayout: DrawerLayout
+    private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        val navController = navHostFragment.navController
+        navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        navController = navHostFragment.navController
+        drawerLayout = binding.drawerLayout
+        binding.drawer.setupWithNavController(navController)
+        appBarConfiguration = AppBarConfiguration(setOf(
+            R.id.train_icon,
+            R.id.settings_icon,
+            R.id.add_training_icon,
+            R.id.statistics_icon
+        ),drawerLayout)
+        setupActionBarWithNavController(navController,appBarConfiguration)
 
-        binding.bottomNavView.setupWithNavController(navController)
-
-        binding.apply {
-            toggle = ActionBarDrawerToggle(this@MainActivity, drawerLayout, R.string.open, R.string.close)
-            drawerLayout.addDrawerListener(toggle)
-            toggle.syncState()
-
-            supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-            drawer.setupWithNavController(navController)
-        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(toggle.onOptionsItemSelected(item))
-            true
-        return super.onOptionsItemSelected(item)
+        return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 }

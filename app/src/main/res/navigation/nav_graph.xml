@@ -7,21 +7,27 @@
     <fragment
         android:id="@+id/statistics_icon"
         android:name="com.example.coursework.screens.statistics.Statistics"
-        android:label="fragment_statistics"
         tools:layout="@layout/fragment_statistics" />
     <fragment
         android:id="@+id/settings_icon"
         android:name="com.example.coursework.screens.settings.Settings"
-        android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/train_icon"
         android:name="com.example.coursework.screens.trainings.TrainingsScreen"
-        android:label="fragment_trainings_screen"
-        tools:layout="@layout/fragment_trainings_screen" >
+        tools:layout="@layout/fragment_trainings_screen">
         <action
             android:id="@+id/action_train_icon_to_trainDetails"
             app:destination="@id/trainDetails" />
+        <action
+            android:id="@+id/action_train_icon_to_add_training_icon2"
+            app:destination="@id/add_training_icon" />
+        <action
+            android:id="@+id/action_train_icon_to_statistics_icon2"
+            app:destination="@id/statistics_icon" />
+        <action
+            android:id="@+id/action_train_icon_to_settings_icon2"
+            app:destination="@id/settings_icon" />
     </fragment>
     <fragment
         android:id="@+id/add_training_icon"
@@ -38,28 +44,13 @@
     <fragment
         android:id="@+id/trainDetails"
         android:name="com.example.coursework.screens.trainings.TrainDetails"
-        android:label="fragment_train_details"
-        tools:layout="@layout/fragment_train_details" >
-        <action
-            android:id="@+id/action_trainDetails_to_train_icon"
-            app:destination="@id/train_icon" />
-    </fragment>
+        tools:layout="@layout/fragment_train_details" />
     <fragment
         android:id="@+id/addTrainingByCode"
         android:name="com.example.coursework.screens.adding.AddTrainingByCode"
-        android:label="fragment_add_training_by_code"
-        tools:layout="@layout/fragment_add_training_by_code" >
-        <action
-            android:id="@+id/action_addTrainingByCode_to_add_training_icon"
-            app:destination="@id/add_training_icon" />
-    </fragment>
+        tools:layout="@layout/fragment_add_training_by_code" />
     <fragment
         android:id="@+id/addOwnTraining"
         android:name="com.example.coursework.screens.adding.AddOwnTraining"
-        android:label="fragment_add_own_training"
-        tools:layout="@layout/fragment_add_own_training" >
-        <action
-            android:id="@+id/action_addOwnTraining_to_add_training_icon"
-            app:destination="@id/add_training_icon" />
-    </fragment>
+        tools:layout="@layout/fragment_add_own_training" />
 </navigation>
