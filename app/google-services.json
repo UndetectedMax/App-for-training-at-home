@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "796168894144",
+    "project_id": "be-in-form",
+    "storage_bucket": "be-in-form.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:796168894144:android:acd995a999c66a092f5f25",
+        "android_client_info": {
+          "package_name": "com.example.coursework"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "796168894144-thqidlf6k13uj2msor2ed6jrn486bls5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.coursework",
+            "certificate_hash": "ee8a8cea7a31bc97b3b537515699c4e42d61bdc7"
+          }
+        },
+        {
+          "client_id": "796168894144-evl67i77m85isq4hdt9ikgr1aogi6ml7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlGcGvSgyYUb5wWtgbcTjhtHyldBgvj_c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "796168894144-evl67i77m85isq4hdt9ikgr1aogi6ml7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
