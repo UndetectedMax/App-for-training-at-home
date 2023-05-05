@@ -1,13 +1,8 @@
 package com.example.coursework.screens.login
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContentProviderCompat.requireContext
-import com.example.coursework.MainActivity
-
 import com.example.coursework.repositories.UserRepository
 import com.example.coursework.repositories.mapFromFirebaseUser
 import com.firebase.ui.auth.AuthUI
@@ -36,11 +31,10 @@ class LoginActivity : AppCompatActivity() {
     private var userListener: onAuthStateListener? = null
 
     private fun onSignInResult(res: FirebaseAuthUIAuthenticationResult) {
-        if (res.resultCode == AppCompatActivity.RESULT_OK) {
+        if (res.resultCode == RESULT_OK) {
             FirebaseAuth.getInstance().currentUser?.also {
                 UserRepository().createOrUpdateUser(mapFromFirebaseUser(it))
                 userListener?.onAuthStateChanged()
-
             } ?: Toast.makeText(this, "Login failed, try again", Toast.LENGTH_LONG)
                 .show()
         } else {
@@ -52,7 +46,6 @@ class LoginActivity : AppCompatActivity() {
             }
         }
     }
-
     private fun doLogin() {
         val signIn = AuthUI.getInstance()
             .createSignInIntentBuilder()

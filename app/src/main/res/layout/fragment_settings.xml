@@ -14,72 +14,63 @@
         android:layout_height="143dp"
         android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/userPhoto"
-            android:layout_width="109dp"
-            android:layout_height="115dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true"
-            android:contentDescription="Avatar!"
-            android:src="@drawable/avatar"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.046"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.428" />
-
         <TextView
             android:id="@+id/email"
-            android:layout_width="275dp"
-            android:layout_height="16dp"
+            android:layout_width="272dp"
+            android:layout_height="24dp"
             android:layout_alignStart="@+id/userPhoto"
             android:layout_alignBottom="@+id/userPhoto"
             android:layout_alignParentEnd="true"
-            android:text="@string/name"
-            app:layout_constraintBottom_toBottomOf="@+id/userPhoto"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.458"
             app:layout_constraintStart_toEndOf="@+id/userPhoto"
-            app:layout_constraintTop_toTopOf="@+id/userPhoto"
-            app:layout_constraintVertical_bias="0.04" />
+            app:layout_constraintTop_toTopOf="@+id/userPhoto" />
 
         <TextView
             android:id="@+id/name"
             android:layout_width="272dp"
             android:layout_height="18dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/surname"
-            app:layout_constraintBottom_toBottomOf="@+id/userPhoto"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="4dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.518"
+            app:layout_constraintHorizontal_bias="0.833"
             app:layout_constraintStart_toEndOf="@+id/userPhoto"
-            app:layout_constraintTop_toBottomOf="@+id/email"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/email" />
 
         <Button
             android:id="@+id/button3"
-            android:layout_width="105dp"
-            android:layout_height="39dp"
-            android:layout_marginTop="16dp"
+            android:layout_width="128dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
             android:text="@string/logout_button"
-            app:layout_constraintBottom_toBottomOf="@+id/userPhoto"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.956"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/userPhoto"
             app:layout_constraintTop_toBottomOf="@+id/name"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageView
+            android:id="@+id/userPhoto"
+            android:layout_width="131dp"
+            android:layout_height="129dp"
+            android:src="@drawable/baseline_verified_user_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.003"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/settings_recyclerView"
-        android:layout_width="411dp"
-        android:layout_height="644dp"
+        android:layout_width="413dp"
+        android:layout_height="742dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
