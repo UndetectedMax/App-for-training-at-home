@@ -18,5 +18,8 @@
     <string name="Information">\n \n \t These are current app settings, which are not final.\n \t They will be added soon.</string>
     <string name="go_back">Go back!</string>
     <string name="information_is_pending">Information is pending…</string>
+    <string name="logout_button">Logout!</string>
+    <string name="surname">Surname!</string>
+    <string name="name">name</string>
 
 </resources>
