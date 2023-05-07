@@ -58,12 +58,15 @@ class Settings : Fragment() {
     }
 
     private fun showDetails(currentUser: UserInfo, it: FirebaseUser) {
-        binding.name.text = currentUser?.displayName.toString()
+        binding.name.text = currentUser.displayName.toString()
         binding.email.text = it.email
         currentUser.photo?.let {
             if (it.isNotEmpty()) {
                 Picasso.get().load(currentUser.photo.toString()).into(binding.userPhoto)
             }
+        }
+        binding.logoutButton.setOnClickListener {
+
         }
     }
 }

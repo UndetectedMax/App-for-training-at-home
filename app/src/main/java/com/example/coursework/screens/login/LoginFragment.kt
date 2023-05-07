@@ -1,8 +1,10 @@
 package com.example.coursework.screens.login
 
+import android.content.Context
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.example.coursework.repositories.UserRepository
 import com.example.coursework.repositories.mapFromFirebaseUser
 import com.firebase.ui.auth.AuthUI
@@ -10,11 +12,10 @@ import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
 import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult
 import com.google.firebase.auth.FirebaseAuth
 
-class LoginActivity : AppCompatActivity() {
+class LoginFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         doLogin()
-        onBackPressed()
     }
 
     private val providers = arrayListOf(
@@ -30,22 +31,30 @@ class LoginActivity : AppCompatActivity() {
 
     private var userListener: onAuthStateListener? = null
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is onAuthStateListener) {
+            userListener = context
+        }
+    }
+
     private fun onSignInResult(res: FirebaseAuthUIAuthenticationResult) {
-        if (res.resultCode == RESULT_OK) {
+        if (res.resultCode == AppCompatActivity.RESULT_OK) {
             FirebaseAuth.getInstance().currentUser?.also {
                 UserRepository().createOrUpdateUser(mapFromFirebaseUser(it))
                 userListener?.onAuthStateChanged()
-            } ?: Toast.makeText(this, "Login failed, try again", Toast.LENGTH_LONG)
+            } ?: Toast.makeText(this.requireContext(), "Login failed, try again", Toast.LENGTH_LONG)
                 .show()
         } else {
             if (res.idpResponse == null) {
-                finish()
+                requireActivity().finish()
             } else {
-                Toast.makeText(this, "Login failed, try again", Toast.LENGTH_LONG)
+                Toast.makeText(this.requireContext(), "Login failed, try again", Toast.LENGTH_LONG)
                     .show()
             }
         }
     }
+
     private fun doLogin() {
         val signIn = AuthUI.getInstance()
             .createSignInIntentBuilder()
@@ -56,12 +65,5 @@ class LoginActivity : AppCompatActivity() {
                 "https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjIp8bf4Nn-AhXKmYsKHZpmBjkQFnoECA0QAQ&url=https%3A%2F%2Fel.opu.ua%2F&usg=AOvVaw0ItS1CnIokiTPrQwCY1yJ-"
             ).build()
         launcher.launch(signIn)
-    }
-
-    @Deprecated("Deprecated in Java")
-    override fun onBackPressed() {
-        if (supportFragmentManager.backStackEntryCount == 0)
-            finish()
-        super.onBackPressed()
     }
 }

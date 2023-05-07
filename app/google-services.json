@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "796168894144",
+    "firebase_url": "https://be-in-form-default-rtdb.firebaseio.com",
     "project_id": "be-in-form",
     "storage_bucket": "be-in-form.appspot.com"
   },
@@ -22,7 +23,7 @@
           }
         },
         {
-          "client_id": "796168894144-evl67i77m85isq4hdt9ikgr1aogi6ml7.apps.googleusercontent.com",
+          "client_id": "796168894144-3f9u6qpiut195o1fbd9h392tkjr3tlrj.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -35,7 +36,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "796168894144-evl67i77m85isq4hdt9ikgr1aogi6ml7.apps.googleusercontent.com",
+              "client_id": "796168894144-3f9u6qpiut195o1fbd9h392tkjr3tlrj.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

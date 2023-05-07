@@ -15,7 +15,7 @@ class UserRepository {
         val database = Firebase.database
         val userDBRef = database.getReference("users")
         val userNodeRef = userDBRef.child(user.uid)
-        userNodeRef.push().setValue(user)
+        userNodeRef.setValue(user)
     }
     fun getSportsmen() = FirebaseDatabase.getInstance().getReference("users")
 
