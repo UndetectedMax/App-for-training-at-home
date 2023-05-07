@@ -1,4 +1,4 @@
-package com.example.coursework.repositories
+package com.example.coursework.repositories.User
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

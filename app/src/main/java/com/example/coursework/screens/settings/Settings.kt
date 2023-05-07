@@ -9,8 +9,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coursework.databinding.FragmentSettingsBinding
-import com.example.coursework.repositories.UserInfo
-import com.example.coursework.repositories.UserRepository
+import com.example.coursework.repositories.User.UserInfo
+import com.example.coursework.repositories.User.UserRepository
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.squareup.picasso.Picasso
@@ -58,7 +58,7 @@ class Settings : Fragment() {
     }
 
     private fun showDetails(currentUser: UserInfo, it: FirebaseUser) {
-        binding.name.text = currentUser.displayName.toString()
+        binding.name.text = currentUser.displayName
         binding.email.text = it.email
         currentUser.photo?.let {
             if (it.isNotEmpty()) {

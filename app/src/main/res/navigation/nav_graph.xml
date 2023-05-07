@@ -58,5 +58,9 @@
         android:id="@+id/addOwnTraining"
         android:name="com.example.coursework.screens.adding.AddOwnTraining"
         android:label="Own training"
-        tools:layout="@layout/fragment_add_own_training" />
+        tools:layout="@layout/fragment_add_own_training" >
+        <action
+            android:id="@+id/action_addOwnTraining_to_add_training_icon"
+            app:destination="@id/add_training_icon" />
+    </fragment>
 </navigation>

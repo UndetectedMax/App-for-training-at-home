@@ -1,5 +1,6 @@
-package com.example.coursework.repositories
+package com.example.coursework.repositories.User
 
+import com.example.coursework.repositories.User.UserInfo
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DataSnapshot
@@ -20,7 +21,7 @@ class UserRepository {
     fun getSportsmen() = FirebaseDatabase.getInstance().getReference("users")
 
     interface FetchSportsmanListener{
-        fun onFetchSportsman(user:UserInfo)
+        fun onFetchSportsman(user: UserInfo)
     }
     fun getCurrentUserById(firebaseUser: FirebaseUser,listener:FetchSportsmanListener) {
         val database = Firebase.database
@@ -42,4 +43,4 @@ class UserRepository {
         )
     }
 }
-fun mapFromFirebaseUser(user: FirebaseUser):UserInfo = UserInfo(user.uid,user.displayName ?: "Anonymous user",user.photoUrl.toString())
+fun mapFromFirebaseUser(user: FirebaseUser): UserInfo = UserInfo(user.uid,user.displayName ?: "Anonymous user",user.photoUrl.toString())
