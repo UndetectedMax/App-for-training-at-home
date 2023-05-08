@@ -10,15 +10,13 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/trainRwAdd"
-        android:layout_width="411dp"
-        android:layout_height="747dp"
-        android:layout_marginBottom="4dp"
+        android:layout_width="414dp"
+        android:layout_height="756dp"
         app:layout_constraintBottom_toTopOf="@+id/addTrainByCode"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.961" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/addOwnTrainingButton"
