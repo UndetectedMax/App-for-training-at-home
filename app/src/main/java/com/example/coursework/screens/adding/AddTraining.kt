@@ -47,7 +47,6 @@ class AddTraining : Fragment() {
         }
         return binding.root
     }
-
     override fun onStart() {
         super.onStart()
         adapter.startListening()

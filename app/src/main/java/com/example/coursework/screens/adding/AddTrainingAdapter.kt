@@ -11,9 +11,8 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 
 class AddTrainingAdapter(
-    options: FirestoreRecyclerOptions<OwnTrainInfo>,
-) :
-    FirestoreRecyclerAdapter<OwnTrainInfo, AddTrainingAdapter.TrainViewHolder>(options) {
+    private val options: FirestoreRecyclerOptions<OwnTrainInfo>,
+    ) : FirestoreRecyclerAdapter<OwnTrainInfo, AddTrainingAdapter.TrainViewHolder>(options) {
 
     inner class TrainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val trainName: TextView = itemView.findViewById(R.id.name_of_train)
@@ -21,9 +20,9 @@ class AddTrainingAdapter(
         private val trainCode: TextView = itemView.findViewById(R.id.train_code)
 
         fun bind(train: OwnTrainInfo) {
-            trainName.text = train.trainName
-            trainAuthor.text = train.trainAuthor
-            trainCode.text = train.trainCode
+            trainName.text = train.trainName.toString()
+            trainAuthor.text = train.trainAuthor.toString()
+            trainCode.text = train.trainCode.toString()
         }
     }
 
@@ -35,7 +34,7 @@ class AddTrainingAdapter(
                 false
             )
         )
-            /*holder.itemView.setOnClickListener {
+           /* holder.itemView.setOnClickListener {
             onItemClickListener.onItemClick(
                 options.snapshots[holder.adapterPosition]
             )
