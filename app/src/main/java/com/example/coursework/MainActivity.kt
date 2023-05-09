@@ -53,21 +53,26 @@ class MainActivity : AppCompatActivity() {
             setupActionBarWithNavController(navController, appBarConfiguration)
 
             FirebaseAuth.getInstance().currentUser?.let {
-                userRepository.getCurrentUserById(it, object : UserRepository.FetchSportsmanListener {
-                    override fun onFetchSportsman(user: UserInfo) {
-                        currentUser = user
-                        showDetails(currentUser, it)
-                    }
-                })
+                userRepository.getCurrentUserById(
+                    it,
+                    object : UserRepository.FetchSportsmanListener {
+                        override fun onFetchSportsman(user: UserInfo) {
+                            currentUser = user
+                            showDetails(currentUser, it)
+                        }
+                    })
             }
 
         }
     }
 
     private fun showDetails(currentUser: UserInfo, it: FirebaseUser) {
-        val userAvatar = binding.drawer.getHeaderView(0).findViewById<ImageView>(R.id.avatar_drawer_header)
-        val userEmail = binding.drawer.getHeaderView(0).findViewById<TextView>(R.id.name_drawer_header)
-        val userName = binding.drawer.getHeaderView(0).findViewById<TextView>(R.id.email_drawer_header)
+        val userAvatar =
+            binding.drawer.getHeaderView(0).findViewById<ImageView>(R.id.avatar_drawer_header)
+        val userEmail =
+            binding.drawer.getHeaderView(0).findViewById<TextView>(R.id.name_drawer_header)
+        val userName =
+            binding.drawer.getHeaderView(0).findViewById<TextView>(R.id.email_drawer_header)
         userName.text = currentUser.displayName
         userEmail.text = it.email
         currentUser.photo?.let {

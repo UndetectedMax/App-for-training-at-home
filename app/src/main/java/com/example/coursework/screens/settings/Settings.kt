@@ -45,7 +45,6 @@ class Settings : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        /*ToDO: добавь прогресс бар,который тут будет визибл*/
         FirebaseAuth.getInstance().currentUser?.let {
             repository.getCurrentUserById(it, object : UserRepository.FetchSportsmanListener {
                 override fun onFetchSportsman(user: UserInfo) {
@@ -54,7 +53,6 @@ class Settings : Fragment() {
                 }
             })
         }
-        /*ToDO:а тут снова инвизибл */
     }
 
     private fun showDetails(currentUser: UserInfo, it: FirebaseUser) {
