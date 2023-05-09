@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.ui.*
@@ -13,7 +15,12 @@ import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.coursework.databinding.ActivityMainBinding
+import com.example.coursework.repositories.User.UserInfo
+import com.example.coursework.repositories.User.UserRepository
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.squareup.picasso.Picasso
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
@@ -21,7 +28,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
-
+    private lateinit var currentUser: UserInfo
+    private val userRepository = UserRepository()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -43,6 +51,29 @@ class MainActivity : AppCompatActivity() {
                 ), drawerLayout
             )
             setupActionBarWithNavController(navController, appBarConfiguration)
+
+            FirebaseAuth.getInstance().currentUser?.let {
+                userRepository.getCurrentUserById(it, object : UserRepository.FetchSportsmanListener {
+                    override fun onFetchSportsman(user: UserInfo) {
+                        currentUser = user
+                        showDetails(currentUser, it)
+                    }
+                })
+            }
+
+        }
+    }
+
+    private fun showDetails(currentUser: UserInfo, it: FirebaseUser) {
+        val userAvatar = binding.drawer.getHeaderView(0).findViewById<ImageView>(R.id.avatar_drawer_header)
+        val userEmail = binding.drawer.getHeaderView(0).findViewById<TextView>(R.id.name_drawer_header)
+        val userName = binding.drawer.getHeaderView(0).findViewById<TextView>(R.id.email_drawer_header)
+        userName.text = currentUser.displayName
+        userEmail.text = it.email
+        currentUser.photo?.let {
+            if (it.isNotEmpty()) {
+                Picasso.get().load(currentUser.photo.toString()).into(userAvatar)
+            }
         }
     }
 
