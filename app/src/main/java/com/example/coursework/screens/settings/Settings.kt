@@ -1,6 +1,8 @@
 package com.example.coursework.screens.settings
 
 
+import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.coursework.MainActivity
 import com.example.coursework.databinding.FragmentSettingsBinding
 import com.example.coursework.repositories.User.UserInfo
 import com.example.coursework.repositories.User.UserRepository
@@ -34,8 +37,7 @@ class Settings : Fragment() {
             listOf(
                 "Change the application language",
                 "Change application background",
-                "Change application theme",
-                "Contact us"
+                "Change application theme"
             )
         )
         val recyclerView: RecyclerView = binding.settingsRecyclerView
@@ -64,7 +66,15 @@ class Settings : Fragment() {
             }
         }
         binding.logoutButton.setOnClickListener {
-
+            AlertDialog.Builder(requireContext())
+                .setTitle("You have pressed the logout button")
+                .setMessage("Are you sure you want to logout?")
+                .setNegativeButton("No,i don`t want", null)
+                .setPositiveButton("Yes,i am really sure") { _, _ ->
+                    FirebaseAuth.getInstance().signOut()
+                    startActivity(Intent(requireContext(), MainActivity::class.java))
+                }
+                .show()
         }
     }
 }
