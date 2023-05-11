@@ -12,6 +12,7 @@ import com.example.coursework.R
 import com.example.coursework.databinding.FragmentAddtrainingBinding
 import com.example.coursework.repositories.OwnTrain.OwnTrainInfo
 import com.firebase.ui.database.FirebaseRecyclerOptions
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 
 class AddTraining : Fragment() {
@@ -40,7 +41,8 @@ class AddTraining : Fragment() {
     }
 
     private fun initRecyclerView() {
-        val trainings = FirebaseDatabase.getInstance().getReference("trainings")
+        val userName = FirebaseAuth.getInstance().currentUser?.displayName
+        val trainings = FirebaseDatabase.getInstance().getReference("trainings").orderByChild("trainAuthor").equalTo(userName)
         val options = FirebaseRecyclerOptions.Builder<OwnTrainInfo>().setLifecycleOwner(this)
             .setQuery(trainings, OwnTrainInfo::class.java)
             .build()
