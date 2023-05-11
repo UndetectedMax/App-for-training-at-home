@@ -57,7 +57,11 @@
         android:id="@+id/addTrainingByCode"
         android:name="com.example.coursework.screens.adding.AddTrainingByCode"
         android:label="Add Training by Code"
-        tools:layout="@layout/fragment_add_training_by_code" />
+        tools:layout="@layout/fragment_add_training_by_code" >
+        <action
+            android:id="@+id/action_addTrainingByCode_to_add_training_icon"
+            app:destination="@id/add_training_icon" />
+    </fragment>
     <fragment
         android:id="@+id/addOwnTraining"
         android:name="com.example.coursework.screens.adding.AddOwnTraining"

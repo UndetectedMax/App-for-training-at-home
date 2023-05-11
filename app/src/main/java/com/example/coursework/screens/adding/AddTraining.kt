@@ -23,15 +23,8 @@ class AddTraining : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentAddtrainingBinding.inflate(layoutInflater, container, false)
-        //val appUser = FirebaseAuth.getInstance().currentUser?.displayName.toString()
         initRecyclerView()
-        binding.addTrainByCode.setOnClickListener {
-            val args = Bundle()
-            findNavController().navigate(
-                R.id.action_add_training_icon_to_addTrainingByCode, args
-            )
-        }
-        binding.addOwnTrainingButton.setOnClickListener {
+        binding.extendedFab.setOnClickListener {
             val args = Bundle()
             findNavController().navigate(
                 R.id.action_add_training_icon_to_addOwnTraining, args
