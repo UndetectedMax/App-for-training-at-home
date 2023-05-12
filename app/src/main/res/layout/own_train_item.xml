@@ -3,13 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_marginTop="32dp">
+    android:layout_marginTop="16dp">
 
     <TextView
         android:id="@+id/name_of_train"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TrainName"
+        android:text="@string/trainname"
         android:layout_marginStart="20dp"
         android:textSize="18sp" />
 
@@ -23,14 +23,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:text="Author"
+            android:text="@string/author"
             android:textSize="12sp" />
 
         <TextView
             android:id="@+id/train_code"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TrainCode"
+            android:text="@string/traincode"
             android:textSize="12sp" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 </androidx.appcompat.widget.LinearLayoutCompat>
