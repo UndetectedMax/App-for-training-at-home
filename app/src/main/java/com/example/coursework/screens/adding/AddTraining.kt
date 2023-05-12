@@ -24,10 +24,16 @@ class AddTraining : Fragment() {
     ): View {
         binding = FragmentAddtrainingBinding.inflate(layoutInflater, container, false)
         initRecyclerView()
-        binding.extendedFab.setOnClickListener {
+        binding.extendedFABAddOwnTrain.setOnClickListener {
             val args = Bundle()
             findNavController().navigate(
                 R.id.action_add_training_icon_to_addOwnTraining, args
+            )
+        }
+        binding.extendedFABAddTrainByCode.setOnClickListener {
+            val args = Bundle()
+            findNavController().navigate(
+                R.id.action_add_training_icon_to_addTrainingByCode, args
             )
         }
         return binding.root

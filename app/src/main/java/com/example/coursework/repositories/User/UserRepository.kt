@@ -1,4 +1,4 @@
-package com.example.coursework.repositories.User
+ package com.example.coursework.repositories.User
 
 
 import com.google.firebase.auth.FirebaseAuth
@@ -18,8 +18,6 @@ class UserRepository {
         val userNodeRef = userDBRef.child(user.uid)
         userNodeRef.setValue(user)
     }
-
-    fun getSportsmen() = FirebaseDatabase.getInstance().getReference("users")
 
     interface FetchSportsmanListener {
         fun onFetchSportsman(user: UserInfo)
