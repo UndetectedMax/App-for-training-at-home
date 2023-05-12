@@ -11,7 +11,6 @@ import com.example.coursework.R
 import com.example.coursework.databinding.FragmentAddTrainingByCodeBinding
 import com.example.coursework.repositories.OwnTrain.TrainRepository
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.ktx.Firebase
 
 
 @SuppressLint("SetTextI18n")
@@ -26,7 +25,11 @@ class AddTrainingByCode : Fragment(R.layout.fragment_add_training_by_code) {
         val database = FirebaseDatabase.getInstance().getReference("trainings")
         binding.submitButton.setOnClickListener {
             if (binding.enterCodeText.text.isBlank()) {
-                Toast.makeText(requireContext(),"You need to enter code in the required field",Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    "You need to enter code in the required field",
+                    Toast.LENGTH_SHORT
+                ).show()
             } else {
                 val trainCode = binding.enterCodeText.text.toString()
             }
