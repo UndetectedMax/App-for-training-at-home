@@ -21,5 +21,6 @@
     <string name="logout_button">Logout</string>
     <string name="surname">Surname!</string>
     <string name="name">name</string>
+    <string name="add_own_train">Add Own Train</string>
 
 </resources>
