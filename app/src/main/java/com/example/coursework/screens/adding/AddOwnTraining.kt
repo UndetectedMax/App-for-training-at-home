@@ -11,6 +11,7 @@ import com.example.coursework.databinding.FragmentAddOwnTrainingBinding
 import com.example.coursework.repositories.OwnTrain.OwnTrainInfo
 import com.example.coursework.repositories.OwnTrain.TrainRepository
 import com.google.firebase.auth.FirebaseAuth
+import kotlin.random.Random
 
 class AddOwnTraining : Fragment() {
     private lateinit var binding: FragmentAddOwnTrainingBinding
@@ -30,7 +31,7 @@ class AddOwnTraining : Fragment() {
         return binding.root
     }
     private fun getInfoForTraining(): OwnTrainInfo {
-        val trainCode = binding.inputCode.text.toString()
+        val trainCode = Random.nextInt(1000000000).toString()
         val author = firebaseAuth.currentUser?.displayName.toString()
         val trainName = binding.ownTrainName.editText?.text.toString()
         val trainDescription = binding.ownTrainDescription.editText?.text.toString()
