@@ -9,7 +9,7 @@
         android:id="@+id/name_of_train"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name"
+        android:text="@string/train_name"
         android:layout_marginStart="20dp"
         android:textSize="18sp" />
 
@@ -23,14 +23,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:text="Author"
+            android:text="@string/author"
             android:textSize="12sp" />
 
         <TextView
             android:id="@+id/train_code"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Code"
+            android:text="@string/train_code"
             android:textSize="12sp" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 </androidx.appcompat.widget.LinearLayoutCompat>

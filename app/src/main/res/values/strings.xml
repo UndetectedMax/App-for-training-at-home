@@ -21,7 +21,10 @@
     <string name="logout_button">Logout</string>
     <string name="surname">Surname!</string>
     <string name="name">name</string>
-    <string name="add_own_train_text_button">Add Own Train</string>
-    <string name="add_train_by_code_text_button">Add Train By Code</string>
-
+    <string name="add_own_train">Add Own Train</string>
+    <string name="display_user_email">Display User Email</string>
+    <string name="display_user_name">Display User Name</string>
+    <string name="train_code">Train Code</string>
+    <string name="train_name">Train Name</string>
+    <string name="author">Author</string>
 </resources>
