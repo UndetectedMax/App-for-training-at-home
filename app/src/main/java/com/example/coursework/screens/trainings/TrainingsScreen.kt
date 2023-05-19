@@ -6,10 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.coursework.R
 import com.example.coursework.databinding.FragmentTrainingsScreenBinding
 
 class TrainingsScreen : Fragment() {
@@ -31,7 +29,7 @@ class TrainingsScreen : Fragment() {
             val args = Bundle()
             args.putString("text", it)
             view?.let {
-                startActivity(Intent(this.requireContext(),TrainDetails::class.java))
+                startActivity(Intent(this.requireContext(), TrainDetails::class.java))
                // Navigation.findNavController(it1)
                //     .navigate(R.id.action_train_icon_to_trainDetails, args)
             }

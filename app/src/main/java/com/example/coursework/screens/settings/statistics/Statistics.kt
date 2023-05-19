@@ -1,4 +1,4 @@
-package com.example.coursework.screens.statistics
+package com.example.coursework.screens.settings.statistics
 
 import android.os.Bundle
 import android.view.LayoutInflater

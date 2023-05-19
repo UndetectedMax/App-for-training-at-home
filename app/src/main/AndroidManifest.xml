@@ -23,6 +23,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".AuthenticationActivity" />
+        <activity android:name=".screens.trainings.TrainDetails" />
     </application>
 
 </manifest>
