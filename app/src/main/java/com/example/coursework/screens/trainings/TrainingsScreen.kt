@@ -25,15 +25,12 @@ class TrainingsScreen : Fragment() {
         binding = FragmentTrainingsScreenBinding.inflate(layoutInflater, container, false)
         val recyclerView: RecyclerView = binding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(this.context)
-        recyclerView.adapter = TrainingAdapter(list, this.requireContext()) {
-            val args = Bundle()
-            args.putString("text", it)
-            view?.let {
-                startActivity(Intent(this.requireContext(), TrainDetails::class.java))
-               // Navigation.findNavController(it1)
-               //     .navigate(R.id.action_train_icon_to_trainDetails, args)
-            }
+        recyclerView.adapter = TrainingAdapter(list, this.requireContext()) { text ->
+            val intent = Intent(this.requireContext(), TrainDetails::class.java)
+            intent.putExtra("text", text)
+            startActivity(intent)
         }
+
         return binding.root
     }
 

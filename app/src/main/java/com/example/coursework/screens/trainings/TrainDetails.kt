@@ -9,6 +9,7 @@ import android.webkit.WebResourceError
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
@@ -41,6 +42,8 @@ class TrainDetails : AppCompatActivity() {
         webView.clearCache(true)
         WebView.setWebContentsDebuggingEnabled(true)
         webView.loadUrl("file:///android_asset/files/index.html")
+        val title = intent.getStringExtra("text").toString()
+        Toast.makeText(this, title, Toast.LENGTH_SHORT).show()
     }
 
     private class MyWebViewClient : WebViewClient() {
