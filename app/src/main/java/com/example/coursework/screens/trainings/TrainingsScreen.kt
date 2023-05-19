@@ -1,5 +1,6 @@
 package com.example.coursework.screens.trainings
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -29,9 +30,10 @@ class TrainingsScreen : Fragment() {
         recyclerView.adapter = TrainingAdapter(list, this.requireContext()) {
             val args = Bundle()
             args.putString("text", it)
-            view?.let { it1 ->
-                Navigation.findNavController(it1)
-                    .navigate(R.id.action_train_icon_to_trainDetails, args)
+            view?.let {
+                startActivity(Intent(this.requireContext(),TrainDetails::class.java))
+               // Navigation.findNavController(it1)
+               //     .navigate(R.id.action_train_icon_to_trainDetails, args)
             }
         }
         return binding.root
