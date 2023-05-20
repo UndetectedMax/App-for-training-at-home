@@ -30,7 +30,6 @@ class TrainingsScreen : Fragment() {
             intent.putExtra("text", text)
             startActivity(intent)
         }
-
         return binding.root
     }
 
