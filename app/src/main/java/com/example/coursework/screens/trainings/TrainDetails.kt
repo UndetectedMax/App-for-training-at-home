@@ -4,15 +4,12 @@ import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.webkit.WebResourceError
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import com.example.coursework.R
 import com.example.coursework.databinding.TrainDetailsBinding
 
@@ -25,7 +22,7 @@ class TrainDetails : AppCompatActivity() {
 
 
     override fun onBackPressed() {
-       super.onBackPressed()
+        super.onBackPressed()
     }
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -43,6 +40,12 @@ class TrainDetails : AppCompatActivity() {
         WebView.setWebContentsDebuggingEnabled(true)
         webView.loadUrl("file:///android_asset/files/index.html")
         val title = intent.getStringExtra("text").toString()
+        when (title) {
+            "Cardio" -> webView.loadUrl("file:///android_asset/files/cardio_trainings.html")
+            "Trainings for arms" -> webView.loadUrl("file:///android_asset/files/arm_trainings.html")
+            "Trainings for legs" -> webView.loadUrl("file:///android_asset/files/leg_trainings.html")
+            "Complex trainings" -> webView.loadUrl("file:///android_asset/files/complex_trainings.html")
+        }
         Toast.makeText(this, title, Toast.LENGTH_SHORT).show()
     }
 

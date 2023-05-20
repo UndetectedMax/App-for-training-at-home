@@ -29,6 +29,7 @@ class TrainingsScreen : Fragment() {
             val intent = Intent(this.requireContext(), TrainDetails::class.java)
             intent.putExtra("text", text)
             startActivity(intent)
+
         }
         return binding.root
     }
