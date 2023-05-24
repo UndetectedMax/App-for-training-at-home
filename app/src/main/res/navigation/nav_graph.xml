@@ -6,9 +6,9 @@
     app:startDestination="@id/train_icon">
     <fragment
         android:id="@+id/statistics_icon"
-        android:name="com.example.coursework.screens.settings.statistics.Statistics"
+        android:name="com.example.coursework.screens.planning.PlanTraining"
         android:label="Statistics"
-        tools:layout="@layout/fragment_statistics" />
+        tools:layout="@layout/fragment_planning" />
     <fragment
         android:id="@+id/settings_icon"
         android:name="com.example.coursework.screens.settings.Settings"

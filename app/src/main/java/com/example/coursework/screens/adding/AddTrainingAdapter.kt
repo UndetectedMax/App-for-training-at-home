@@ -15,7 +15,7 @@ class AddTrainingAdapter(
     ) : FirebaseRecyclerAdapter<OwnTrainInfo, AddTrainingAdapter.TrainViewHolder>(options) {
 
     class TrainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val trainName: TextView = itemView.findViewById(R.id.name_of_train)
+        val trainName: TextView = itemView.findViewById(R.id.train_name)
         val trainAuthor: TextView = itemView.findViewById(R.id.train_author)
         val trainCode: TextView = itemView.findViewById(R.id.train_code)
     }
