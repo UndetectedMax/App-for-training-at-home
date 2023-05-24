@@ -27,4 +27,5 @@
     <string name="train_code">Train Code</string>
     <string name="train_name">Train Name</string>
     <string name="author">Author</string>
+    <string name="set_time">Set time!</string>
 </resources>

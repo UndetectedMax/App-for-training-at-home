@@ -46,15 +46,6 @@
             app:destination="@id/addOwnTraining" />
     </fragment>
     <fragment
-        android:id="@+id/trainDetails"
-        android:name="com.example.coursework.screens.trainings.TrainDetails"
-        android:label="Train details"
-        tools:layout="@layout/fragment_train_details" >
-        <action
-            android:id="@+id/action_trainDetails_to_train_icon"
-            app:destination="@id/train_icon" />
-    </fragment>
-    <fragment
         android:id="@+id/addTrainingByCode"
         android:name="com.example.coursework.screens.adding.AddTrainingByCode"
         android:label="Add Training by Code"
@@ -62,6 +53,9 @@
         <action
             android:id="@+id/action_addTrainingByCode_to_add_training_icon"
             app:destination="@id/add_training_icon" />
+        <action
+            android:id="@+id/action_addTrainingByCode_to_addedTrainDetails"
+            app:destination="@id/addedTrainDetails" />
     </fragment>
     <fragment
         android:id="@+id/addOwnTraining"
@@ -76,4 +70,8 @@
         android:id="@+id/loginFragment2"
         android:name="com.example.coursework.screens.login.LoginFragment"
         android:label="LoginFragment" />
+    <fragment
+        android:id="@+id/addedTrainDetails"
+        android:name="com.example.coursework.screens.adding.AddedTrainDetails"
+        android:label="AddedTrainDetails" />
 </navigation>
