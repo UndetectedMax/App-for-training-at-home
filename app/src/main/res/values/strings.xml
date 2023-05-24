@@ -28,4 +28,7 @@
     <string name="train_name">Train Name</string>
     <string name="author">Author</string>
     <string name="set_time">Set time!</string>
+    <string name="default_notification_channel_id">my_channel_id</string>
+    <string name="default_notification_channel_name">My Channel</string>
+    <string name="default_notification_channel_description">Default Channel for Notifications</string>
 </resources>
