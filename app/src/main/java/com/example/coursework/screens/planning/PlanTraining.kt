@@ -31,8 +31,7 @@ class PlanTraining : Fragment() {
     private fun initRecyclerView() {
         val userName = FirebaseAuth.getInstance().currentUser?.displayName
         val trainings =
-            FirebaseDatabase.getInstance().getReference("trainings").orderByChild("trainAuthor")
-                .equalTo(userName)
+            FirebaseDatabase.getInstance().getReference("trainings")
         val options = FirebaseRecyclerOptions.Builder<OwnTrainInfo>().setLifecycleOwner(this)
             .setQuery(trainings, OwnTrainInfo::class.java)
             .build()

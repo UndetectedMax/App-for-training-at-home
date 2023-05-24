@@ -32,7 +32,7 @@ class AddOwnTraining : Fragment() {
     }
     private fun getInfoForTraining(): OwnTrainInfo {
         val trainCode = Random.nextInt(1000000000).toString()
-        val author = firebaseAuth.currentUser?.displayName.toString()
+        val author = firebaseAuth.currentUser?.email.toString()
         val trainName = binding.ownTrainName.editText?.text.toString()
         val trainDescription = binding.ownTrainDescription.editText?.text.toString()
         return OwnTrainInfo(trainCode, author, trainName, trainDescription)

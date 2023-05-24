@@ -13,10 +13,10 @@
         android:icon="@drawable/new_training"
         android:title="@string/addTrainingIcon"/>
     <item
-        android:id="@+id/statistics_icon"
+        android:id="@+id/planning_icon"
         android:enabled="true"
         android:visible="true"
-        android:icon="@drawable/statistics_icon"
+        android:icon="@drawable/planning_icon"
         android:title="@string/statisticIcon"/>
     <item
         android:id="@+id/settings_icon"

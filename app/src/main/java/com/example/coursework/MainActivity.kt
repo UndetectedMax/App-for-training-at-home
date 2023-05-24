@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
                     R.id.train_icon,
                     R.id.settings_icon,
                     R.id.add_training_icon,
-                    R.id.statistics_icon
+                    R.id.planning_icon
                 ), drawerLayout
             )
             setupActionBarWithNavController(navController, appBarConfiguration)

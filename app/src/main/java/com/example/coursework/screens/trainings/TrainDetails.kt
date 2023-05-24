@@ -38,7 +38,6 @@ class TrainDetails : AppCompatActivity() {
             "Trainings for legs" -> webView.loadUrl("file:///android_asset/files/leg_trainings.html")
             "Complex trainings" -> webView.loadUrl("file:///android_asset/files/complex_trainings.html")
         }
-        Toast.makeText(this, title, Toast.LENGTH_SHORT).show()
     }
 
     private class MyWebViewClient : WebViewClient() {

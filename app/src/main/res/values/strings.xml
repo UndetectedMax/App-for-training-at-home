@@ -2,7 +2,7 @@
     <string name="app_name">Be in form!</string>
     <string name="trainingIcon">Training</string>
     <string name="addTrainingIcon">Add train</string>
-    <string name="statisticIcon">Stats</string>
+    <string name="statisticIcon">Planning</string>
     <string name="settingsIcon">Settings</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="enter_code_here">Enter code here!</string>

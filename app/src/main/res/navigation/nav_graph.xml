@@ -5,9 +5,9 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/train_icon">
     <fragment
-        android:id="@+id/statistics_icon"
+        android:id="@+id/planning_icon"
         android:name="com.example.coursework.screens.planning.PlanTraining"
-        android:label="Statistics"
+        android:label="Planning"
         tools:layout="@layout/fragment_planning" />
     <fragment
         android:id="@+id/settings_icon"
@@ -28,7 +28,7 @@
             app:destination="@id/add_training_icon" />
         <action
             android:id="@+id/action_train_icon_to_statistics_icon2"
-            app:destination="@id/statistics_icon" />
+            app:destination="@id/planning_icon" />
         <action
             android:id="@+id/action_train_icon_to_settings_icon2"
             app:destination="@id/settings_icon" />
