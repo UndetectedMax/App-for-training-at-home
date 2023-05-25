@@ -8,7 +8,11 @@
         android:id="@+id/planning_icon"
         android:name="com.example.coursework.screens.planning.PlanTraining"
         android:label="Planning"
-        tools:layout="@layout/fragment_planning" />
+        tools:layout="@layout/fragment_planning" >
+        <action
+            android:id="@+id/action_planning_icon_to_addedTrainDetails"
+            app:destination="@id/addedTrainDetails" />
+    </fragment>
     <fragment
         android:id="@+id/settings_icon"
         android:name="com.example.coursework.screens.settings.Settings"
@@ -44,6 +48,9 @@
         <action
             android:id="@+id/action_add_training_icon_to_addOwnTraining"
             app:destination="@id/addOwnTraining" />
+        <action
+            android:id="@+id/action_add_training_icon_to_addedTrainDetails"
+            app:destination="@id/addedTrainDetails" />
     </fragment>
     <fragment
         android:id="@+id/addTrainingByCode"

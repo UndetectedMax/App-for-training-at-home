@@ -12,7 +12,7 @@ import com.firebase.ui.database.FirebaseRecyclerOptions
 
 class PlanTrainingAdapter(
     options: FirebaseRecyclerOptions<OwnTrainInfo>,
-    private val onItemClickListener: OnItemClickListener
+    private val onItemClicked: (text: String) -> Unit
 ) : FirebaseRecyclerAdapter<OwnTrainInfo, PlanTrainingAdapter.TrainViewHolder>(options) {
 
     class TrainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -22,25 +22,17 @@ class PlanTrainingAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TrainViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.plan_train_item, parent, false)
-        val holder = TrainViewHolder(view)
-        holder.itemView.setOnClickListener {
-            val position = holder.adapterPosition
-            if (position != RecyclerView.NO_POSITION) {
-                val ownTrain = getItem(position)
-                onItemClickListener.onItemClick(ownTrain)
-            }
-        }
-        return holder
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.plan_train_item, parent, false)
+        return TrainViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: TrainViewHolder, position: Int, model: OwnTrainInfo) {
         holder.trainName.text = model.trainName
         holder.trainAuthor.text = model.trainAuthor
         holder.trainCode.text = model.trainCode
-    }
-
-    interface OnItemClickListener {
-        fun onItemClick(ownTrain: OwnTrainInfo)
+        holder.itemView.setOnClickListener{
+            onItemClicked.invoke(holder.trainCode.text.toString())
+        }
     }
 }

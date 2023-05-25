@@ -1,18 +1,15 @@
 package com.example.coursework.screens.trainings
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-
-
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coursework.R
 
 class TrainingAdapter(
     private val items: ArrayList<String>,
-    var onItemClicked: (text: String) -> Unit
+    private var onItemClicked: (text: String) -> Unit
 ) :
     RecyclerView.Adapter<TrainingAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.*
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.coursework.R
@@ -54,11 +55,11 @@ class PlanTraining : Fragment() {
         val options = FirebaseRecyclerOptions.Builder<OwnTrainInfo>()
             .setQuery(trainings, OwnTrainInfo::class.java)
             .build()
-        adapter = PlanTrainingAdapter(options, object : PlanTrainingAdapter.OnItemClickListener {
-            override fun onItemClick(ownTrain: OwnTrainInfo) {
-                // Обработка щелчка на элементе списка
-            }
-        })
+        adapter = PlanTrainingAdapter(options) { text ->
+            val args = Bundle()
+            args.putString("trainCode", text)
+            findNavController().navigate(R.id.action_planning_icon_to_addedTrainDetails, args)
+        }
         binding.trainRwPlan.adapter = adapter
         binding.trainRwPlan.layoutManager = LinearLayoutManager(activity)
         binding.trainRwPlan.addItemDecoration(

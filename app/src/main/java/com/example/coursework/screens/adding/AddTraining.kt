@@ -45,7 +45,11 @@ class AddTraining : Fragment() {
         val options = FirebaseRecyclerOptions.Builder<OwnTrainInfo>().setLifecycleOwner(this)
             .setQuery(trainings, OwnTrainInfo::class.java)
             .build()
-        adapter = AddTrainingAdapter(options)
+        adapter = AddTrainingAdapter(options) { text ->
+            val args = Bundle()
+            args.putString("trainCode",text)
+            findNavController().navigate(R.id.action_add_training_icon_to_addedTrainDetails,args)
+        }
         binding.trainRwAdd.adapter = adapter
         binding.trainRwAdd.layoutManager = LinearLayoutManager(activity)
         binding.trainRwAdd.addItemDecoration(
