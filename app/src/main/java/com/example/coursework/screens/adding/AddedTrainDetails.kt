@@ -29,6 +29,7 @@ import java.util.Calendar
 class AddedTrainDetails : Fragment() {
     private lateinit var binding: AddedTrainDetailsBinding
     private lateinit var notificationManager: NotificationManagerCompat
+    private var selectedTimeInMillis: Long = 0
 
     @SuppressLint("ObsoleteSdkInt")
     override fun onCreateView(
@@ -106,8 +107,10 @@ class AddedTrainDetails : Fragment() {
                             minute
                         )
 
+                        selectedTimeInMillis = selectedCalendar.timeInMillis
+
                         // Назначаем уведомление на выбранную дату и время
-                        setNotification(selectedCalendar.timeInMillis)
+                        setNotification(selectedTimeInMillis)
                     },
                     currentDate.get(Calendar.HOUR_OF_DAY),
                     currentDate.get(Calendar.MINUTE),
@@ -124,7 +127,7 @@ class AddedTrainDetails : Fragment() {
 
     @SuppressLint("MissingPermission")
     private fun setNotification(timeInMillis: Long) {
-        val notificationTitle = "Напоминание"
+        val notificationTitle = "Yo have "
         val notificationText = "Уведомление"
 
         // Создаем намерение для открытия активности при нажатии на уведомление
@@ -146,8 +149,9 @@ class AddedTrainDetails : Fragment() {
             .build()
 
         // Устанавливаем время для уведомления
-        val notificationTime = Calendar.getInstance()
-        notificationTime.timeInMillis = timeInMillis
+        val notificationTime = Calendar.getInstance().apply {
+            setTimeInMillis(selectedTimeInMillis)
+        }
 
         // Запланировать уведомление
         notificationManager.notify(NOTIFICATION_ID, notification)
