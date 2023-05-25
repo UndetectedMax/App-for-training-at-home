@@ -19,6 +19,8 @@ import com.example.coursework.MainActivity
 import com.example.coursework.databinding.FragmentSettingsBinding
 import com.example.coursework.repositories.User.UserInfo
 import com.example.coursework.repositories.User.UserRepository
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.UserProfileChangeRequest
@@ -62,6 +64,21 @@ class Settings : Fragment() {
                 }
             })
         }
+        val googleSignInClient =
+            GoogleSignIn.getClient(requireContext(), GoogleSignInOptions.DEFAULT_SIGN_IN)
+        binding.logoutButton.setOnClickListener {
+            AlertDialog.Builder(requireContext())
+                .setTitle("You have pressed the logout button")
+                .setMessage("Are you sure you want to logout?")
+                .setNegativeButton("No,I don`t want", null)
+                .setPositiveButton("Yes,I am really sure") { _, _ ->
+                    FirebaseAuth.getInstance().signOut()
+                    googleSignInClient.signOut()
+                    startActivity(Intent(requireContext(), MainActivity::class.java))
+                    requireActivity().finish()
+                }
+                .show()
+        }
     }
 
     private fun showDetails(currentUser: UserInfo, it: FirebaseUser) {
@@ -90,17 +107,6 @@ class Settings : Fragment() {
             updateUserName()
         }
 
-        binding.logoutButton.setOnClickListener {
-            AlertDialog.Builder(requireContext())
-                .setTitle("You have pressed the logout button")
-                .setMessage("Are you sure you want to logout?")
-                .setNegativeButton("No,I don`t want", null)
-                .setPositiveButton("Yes,I am really sure") { _, _ ->
-                    FirebaseAuth.getInstance().signOut()
-                    startActivity(Intent(requireContext(), MainActivity::class.java))
-                }
-                .show()
-        }
         binding.pageProgress.isVisible = false
     }
 
@@ -167,5 +173,3 @@ class Settings : Fragment() {
             }
         }
 }
-
-
