@@ -3,43 +3,47 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/light_green">
 
     <TextView
         android:id="@+id/added_train_name"
-        android:layout_width="wrap_content"
+        android:layout_width="128dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="176dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/title_border"
+        android:padding="16dp"
         android:text="@string/train_name"
-        app:layout_constraintBottom_toTopOf="@+id/set_date"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/added_train_desc"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/added_train_desc"
-        android:layout_width="134dp"
-        android:layout_height="25dp"
-        android:layout_marginBottom="244dp"
+        android:layout_width="340dp"
+        android:layout_height="256dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/text_border"
+        android:padding="16dp"
         android:text="@string/own_training_description"
         app:layout_constraintBottom_toTopOf="@+id/set_date"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.548"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/added_train_name"
-        app:layout_constraintVertical_bias="0.732" />
+        app:layout_constraintTop_toBottomOf="@+id/added_train_name" />
 
     <Button
         android:id="@+id/set_date"
-        android:layout_width="172dp"
-        android:layout_height="61dp"
+        android:layout_width="180dp"
+        android:layout_height="64dp"
+        android:backgroundTint="@color/lilac"
         android:text="@string/set_time"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.556"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.951" />
+        app:layout_constraintTop_toBottomOf="@+id/added_train_desc"
+        app:layout_constraintVertical_bias="0.95" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

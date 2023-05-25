@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screens.trainings.TrainingsScreen">
+    tools:context=".screens.settings.Settings">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -17,16 +17,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!--<TextView
+        <TextView
             android:id="@+id/email"
-            android:layout_width="272dp"
-            android:layout_height="24dp"
-            android:layout_alignStart="@+id/userPhoto"
-            android:layout_alignBottom="@+id/userPhoto"
-            android:layout_alignParentEnd="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/text_border"
+            android:hint="@string/display_user_email"
+            android:padding="24dp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/userPhoto"
-            app:layout_constraintTop_toTopOf="@+id/userPhoto" />-->
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/userPhoto"
@@ -57,6 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:hint="@string/display_user_name"
+            app:boxBackgroundColor="@color/white"
             app:endIconDrawable="@drawable/ic_save"
             app:endIconMode="custom"
             app:layout_constraintEnd_toEndOf="parent"
@@ -67,24 +70,6 @@
                 android:id="@+id/updateUserName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/email"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:hint="@string/display_user_email"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/name">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/updateUserEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button

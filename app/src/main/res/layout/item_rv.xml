@@ -9,8 +9,10 @@
         android:id="@+id/recycler_view_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/text_border"
         android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="16dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

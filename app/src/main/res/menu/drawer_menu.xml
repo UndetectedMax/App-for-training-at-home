@@ -3,25 +3,29 @@
     <item
         android:id="@+id/train_icon"
         android:enabled="true"
-        android:visible="true"
         android:icon="@drawable/trainings"
-        android:title="@string/trainingIcon" />
+        android:iconTint="@color/white"
+        android:title="@string/trainingIcon"
+        android:visible="true" />
     <item
         android:id="@+id/add_training_icon"
         android:enabled="true"
-        android:visible="true"
         android:icon="@drawable/new_training"
-        android:title="@string/addTrainingIcon"/>
+        android:iconTint="@color/white"
+        android:title="@string/addTrainingIcon"
+        android:visible="true" />
     <item
         android:id="@+id/planning_icon"
         android:enabled="true"
-        android:visible="true"
         android:icon="@drawable/planning_icon"
-        android:title="@string/statisticIcon"/>
+        android:iconTint="@color/white"
+        android:title="@string/statisticIcon"
+        android:visible="true" />
     <item
         android:id="@+id/settings_icon"
         android:enabled="true"
-        android:visible="true"
         android:icon="@drawable/app_settings"
-        android:title="@string/settingsIcon"/>
+        android:iconTint="@color/white"
+        android:title="@string/settingsIcon"
+        android:visible="true" />
 </menu>

@@ -9,4 +9,11 @@
     <color name="white">#FFFFFFFF</color>
     <color name="grey_300">#B3B1B1</color>
     <color name="grey_100">#474646</color>
+    <color name="green_yellow">#8cee00</color>
+    <color name="light_green">#74c276</color>
+    <color name="lilac">#7674c2</color>
+    <color name="violet">#4a47a2</color>
+    <color name="pastel_purple">#acabda</color>
+    <color name="pastel_yellow">#d9daab</color>
+
 </resources>
