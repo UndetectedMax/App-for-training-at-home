@@ -27,11 +27,11 @@
             android:id="@+id/action_train_icon_to_add_training_icon2"
             app:destination="@id/add_training_icon" />
         <action
-            android:id="@+id/action_train_icon_to_statistics_icon2"
-            app:destination="@id/planning_icon" />
-        <action
             android:id="@+id/action_train_icon_to_settings_icon2"
             app:destination="@id/settings_icon" />
+        <action
+            android:id="@+id/action_train_icon_to_planning_icon"
+            app:destination="@id/planning_icon" />
     </fragment>
     <fragment
         android:id="@+id/add_training_icon"

@@ -12,7 +12,7 @@ import com.example.coursework.databinding.FragmentTrainingsScreenBinding
 
 class TrainingsScreen : Fragment() {
     private lateinit var binding: FragmentTrainingsScreenBinding
-    private var list = arrayListOf<String>(
+    private var list = arrayListOf(
         "Cardio",
         "Trainings for arms",
         "Trainings for legs",
@@ -25,11 +25,10 @@ class TrainingsScreen : Fragment() {
         binding = FragmentTrainingsScreenBinding.inflate(layoutInflater, container, false)
         val recyclerView: RecyclerView = binding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(this.context)
-        recyclerView.adapter = TrainingAdapter(list, this.requireContext()) { text ->
+        recyclerView.adapter = TrainingAdapter(list) { text ->
             val intent = Intent(this.requireContext(), TrainDetails::class.java)
             intent.putExtra("text", text)
             startActivity(intent)
-
         }
         return binding.root
     }

@@ -12,7 +12,6 @@ import com.example.coursework.R
 
 class TrainingAdapter(
     private val items: ArrayList<String>,
-    private val context: Context,
     var onItemClicked: (text: String) -> Unit
 ) :
     RecyclerView.Adapter<TrainingAdapter.ViewHolder>() {
