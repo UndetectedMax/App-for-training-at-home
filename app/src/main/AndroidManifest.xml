@@ -36,6 +36,8 @@
         </activity>
         <activity android:name=".AuthenticationActivity" />
         <activity android:name=".screens.trainings.TrainDetails" />
+        <receiver android:name=".screens.adding.NotificationBroadcastReceiver" />
+
     </application>
 
 </manifest>
