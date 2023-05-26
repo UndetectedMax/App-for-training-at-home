@@ -26,7 +26,9 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import java.text.SimpleDateFormat
 import java.util.Calendar
+import java.util.Locale
 
 class AddedTrainDetails : Fragment() {
     private lateinit var binding: AddedTrainDetailsBinding
@@ -129,8 +131,9 @@ class AddedTrainDetails : Fragment() {
 
     @SuppressLint("MissingPermission", "ObsoleteSdkInt")
     private fun setNotification(timeInMillis: Long) {
-        val notificationTitle = "You have a notification"
-        val notificationText = "Notification"
+        val notificationTitle = "You have a planned train"
+        val trainCode = arguments?.getString("trainCode")
+        val notificationText = String.format("Train Code: %s\nDate: %s", trainCode, formatDate(timeInMillis))
 
         // Create an intent to open the activity when the notification is clicked
         val intent = Intent(requireContext(), MainActivity::class.java)
@@ -160,16 +163,17 @@ class AddedTrainDetails : Fragment() {
             notificationIntent,
             PendingIntent.FLAG_IMMUTABLE
         )
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            alarmManager.setExactAndAllowWhileIdle(
-                AlarmManager.RTC_WAKEUP,
-                timeInMillis,
-                pendingNotificationIntent
-            )
-        } else {
-            alarmManager.setExact(AlarmManager.RTC_WAKEUP, timeInMillis, pendingNotificationIntent)
-        }
+        alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, timeInMillis, pendingNotificationIntent)
     }
+
+    private fun formatDate(timeInMillis: Long): String {
+        val calendar = Calendar.getInstance()
+        calendar.timeInMillis = timeInMillis
+
+        val dateFormat = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault())
+        return dateFormat.format(calendar.time)
+    }
+
 
     companion object {
         private const val CHANNEL_ID = "MyNotificationChannel"
