@@ -133,7 +133,8 @@ class AddedTrainDetails : Fragment() {
     private fun setNotification(timeInMillis: Long) {
         val notificationTitle = "You have a planned train"
         val trainCode = arguments?.getString("trainCode")
-        val notificationText = String.format("Train Code: %s\nDate: %s", trainCode, formatDate(timeInMillis))
+        val notificationText =
+            String.format("Train Code: %s\nDate: %s", trainCode, formatDate(timeInMillis))
 
         // Create an intent to open the activity when the notification is clicked
         val intent = Intent(requireContext(), MainActivity::class.java)
@@ -163,7 +164,19 @@ class AddedTrainDetails : Fragment() {
             notificationIntent,
             PendingIntent.FLAG_IMMUTABLE
         )
-        alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, timeInMillis, pendingNotificationIntent)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            alarmManager.setExactAndAllowWhileIdle(
+                AlarmManager.RTC_WAKEUP,
+                timeInMillis,
+                pendingNotificationIntent
+            )
+        } else {
+            alarmManager.setExact(
+                AlarmManager.RTC_WAKEUP,
+                timeInMillis,
+                pendingNotificationIntent
+            )
+        }
     }
 
     private fun formatDate(timeInMillis: Long): String {
