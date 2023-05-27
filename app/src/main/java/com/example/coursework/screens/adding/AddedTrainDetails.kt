@@ -164,19 +164,7 @@ class AddedTrainDetails : Fragment() {
             notificationIntent,
             PendingIntent.FLAG_IMMUTABLE
         )
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            alarmManager.setExactAndAllowWhileIdle(
-                AlarmManager.RTC_WAKEUP,
-                timeInMillis,
-                pendingNotificationIntent
-            )
-        } else {
-            alarmManager.setExact(
-                AlarmManager.RTC_WAKEUP,
-                timeInMillis,
-                pendingNotificationIntent
-            )
-        }
+       alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP,timeInMillis,pendingNotificationIntent)
     }
 
     private fun formatDate(timeInMillis: Long): String {
