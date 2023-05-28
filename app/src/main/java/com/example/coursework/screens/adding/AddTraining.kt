@@ -48,7 +48,7 @@ class AddTraining : Fragment() {
         adapter = AddTrainingAdapter(options) { text ->
             val args = Bundle()
             args.putString("trainCode",text)
-            findNavController().navigate(R.id.action_add_training_icon_to_addedTrainDetails,args)
+            findNavController().navigate(R.id.action_add_training_icon_to_addedTrainDetailsEdit,args)
         }
         binding.trainRwAdd.adapter = adapter
         binding.trainRwAdd.layoutManager = LinearLayoutManager(activity)

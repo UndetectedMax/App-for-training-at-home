@@ -49,8 +49,8 @@
             android:id="@+id/action_add_training_icon_to_addOwnTraining"
             app:destination="@id/addOwnTraining" />
         <action
-            android:id="@+id/action_add_training_icon_to_addedTrainDetails"
-            app:destination="@id/addedTrainDetails" />
+            android:id="@+id/action_add_training_icon_to_addedTrainDetailsEdit"
+            app:destination="@id/addedTrainDetailsEdit2" />
     </fragment>
     <fragment
         android:id="@+id/addTrainingByCode"
@@ -81,4 +81,8 @@
         android:id="@+id/addedTrainDetails"
         android:name="com.example.coursework.screens.adding.AddedTrainDetails"
         android:label="AddedTrainDetails" />
+    <fragment
+        android:id="@+id/addedTrainDetailsEdit2"
+        android:name="com.example.coursework.screens.adding.AddedTrainDetailsEdit"
+        android:label="AddedTrainDetailsEdit" />
 </navigation>

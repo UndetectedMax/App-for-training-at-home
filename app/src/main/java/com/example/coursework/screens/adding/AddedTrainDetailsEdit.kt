@@ -11,8 +11,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,9 +20,8 @@ import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
 import com.example.coursework.MainActivity
 import com.example.coursework.R
-import com.example.coursework.databinding.AddedTrainDetailsBinding
+import com.example.coursework.databinding.AddedTrainDetailsEditBinding
 import com.example.coursework.repositories.OwnTrain.OwnTrainInfo
-import com.example.coursework.repositories.OwnTrain.TrainRepository
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -33,8 +30,8 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
-class AddedTrainDetails : Fragment() {
-    private lateinit var binding: AddedTrainDetailsBinding
+class AddedTrainDetailsEdit: Fragment() {
+    private lateinit var binding: AddedTrainDetailsEditBinding
     private lateinit var notificationManager: NotificationManagerCompat
     private var selectedTimeInMillis: Long = 0
     private var selectedCalendar: Calendar? = null
@@ -44,7 +41,7 @@ class AddedTrainDetails : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = AddedTrainDetailsBinding.inflate(layoutInflater, container, false)
+        binding = AddedTrainDetailsEditBinding.inflate(layoutInflater, container, false)
         notificationManager = NotificationManagerCompat.from(requireContext())
 
         // Create notification channel
@@ -64,13 +61,8 @@ class AddedTrainDetails : Fragment() {
                 requireContext().getSystemService(NotificationManager::class.java)
             notificationManager?.createNotificationChannel(channel)
         }
-
-        binding.setDate.setOnClickListener {
-            showDateTimePickerDialog()
-        }
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val trainCode = arguments?.getString("trainCode")
         val trainReference = FirebaseDatabase.getInstance().getReference("trainings")
@@ -80,8 +72,8 @@ class AddedTrainDetails : Fragment() {
                 for (childSnapshot in dataSnapshot.children) {
                     val train = childSnapshot.getValue(OwnTrainInfo::class.java)
                     train?.let {
-                        binding.addedTrainName.text = it.trainName
-                        binding.addedTrainDesc.text = it.trainDescription
+                        binding.inputTrainName.setText(it.trainName)
+                        binding.inputTrainDesc.setText(it.trainDescription)
                     }
                 }
             }
@@ -90,7 +82,6 @@ class AddedTrainDetails : Fragment() {
             }
         })
     }
-
     private fun showDateTimePickerDialog() {
         val currentDate = Calendar.getInstance()
         val year = currentDate.get(Calendar.YEAR)
@@ -147,7 +138,9 @@ class AddedTrainDetails : Fragment() {
         )
 
         // Create the notification
-        val notification = NotificationCompat.Builder(requireContext(), CHANNEL_ID)
+        val notification = NotificationCompat.Builder(requireContext(),
+            CHANNEL_ID
+        )
             .setContentTitle(notificationTitle)
             .setContentText(notificationText)
             .setSmallIcon(R.drawable.ic_notification)
@@ -179,7 +172,6 @@ class AddedTrainDetails : Fragment() {
         val dateFormat = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault())
         return dateFormat.format(calendar.time)
     }
-
 
     companion object {
         private const val CHANNEL_ID = "MyNotificationChannel"

@@ -32,4 +32,6 @@
     <string name="default_notification_channel_name">My Channel</string>
     <string name="default_notification_channel_description">Default Channel for Notifications</string>
     <string name="search">Search</string>
+    <string name="display_train_name">Display Train Name</string>
+    <string name="display_train_desc_name">Display Train Desc Name</string>
 </resources>
