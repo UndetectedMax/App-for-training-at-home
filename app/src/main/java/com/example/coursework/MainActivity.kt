@@ -1,5 +1,6 @@
 package com.example.coursework
 
+import android.app.AlertDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -17,6 +18,8 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.coursework.databinding.ActivityMainBinding
 import com.example.coursework.repositories.User.UserInfo
 import com.example.coursework.repositories.User.UserRepository
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.squareup.picasso.Picasso
@@ -41,7 +44,9 @@ class MainActivity : AppCompatActivity() {
                 supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
             navController = navHostFragment.navController
             drawerLayout = binding.drawerLayout
-            binding.drawer.setupWithNavController(navController)
+            binding.drawer.setNavigationItemSelectedListener { item ->
+                onOptionsItemSelected(item)
+            }
             appBarConfiguration = AppBarConfiguration(
                 setOf(
                     R.id.train_icon,
@@ -83,6 +88,25 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.logout_icon -> {
+                val googleSignInClient =
+                    GoogleSignIn.getClient(this, GoogleSignInOptions.DEFAULT_SIGN_IN)
+                    AlertDialog.Builder(this)
+                        .setTitle("You have pressed the logout button")
+                        .setMessage("Are you sure you want to logout?")
+                        .setNegativeButton("No,I don`t want", null)
+                        .setPositiveButton("Yes,I am really sure") { _, _ ->
+                            FirebaseAuth.getInstance().signOut()
+                            googleSignInClient.signOut()
+                            startActivity(Intent(this, MainActivity::class.java))
+                            this.finish()
+                        }
+                        .show()
+
+                return true
+            }
+        }
         return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
     }
 

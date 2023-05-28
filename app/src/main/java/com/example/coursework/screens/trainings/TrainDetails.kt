@@ -7,7 +7,6 @@ import android.webkit.WebResourceError
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.coursework.R
 import com.example.coursework.databinding.TrainDetailsBinding
@@ -31,12 +30,12 @@ class TrainDetails : AppCompatActivity() {
         webView.webViewClient = MyWebViewClient()
         webView.clearCache(true)
         WebView.setWebContentsDebuggingEnabled(true)
-        val title = intent.getStringExtra("text").toString()
-        when (title) {
+        when (intent.getStringExtra("text").toString()) {
             "Cardio" -> webView.loadUrl("file:///android_asset/files/cardio_trainings.html")
             "Trainings for arms" -> webView.loadUrl("file:///android_asset/files/arm_trainings.html")
             "Trainings for legs" -> webView.loadUrl("file:///android_asset/files/leg_trainings.html")
             "Complex trainings" -> webView.loadUrl("file:///android_asset/files/complex_trainings.html")
+            "Trainings for recovery" -> webView.loadUrl("file:///android_asset/files/recovery.html")
         }
     }
 
