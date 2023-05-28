@@ -32,7 +32,7 @@
             android:visible="true" />
     </group>
 
-    <item android:title="Other functions">
+    <item android:title="@string/other_functions_drawer">
         <menu>
             <item
                 android:id="@+id/logout_icon"

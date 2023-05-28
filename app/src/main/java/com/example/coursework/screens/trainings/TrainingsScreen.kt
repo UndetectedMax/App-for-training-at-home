@@ -16,7 +16,8 @@ class TrainingsScreen : Fragment() {
         "Cardio",
         "Trainings for arms",
         "Trainings for legs",
-        "Complex trainings"
+        "Complex trainings",
+        "Trainings for recovery"
     )
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

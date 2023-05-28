@@ -32,4 +32,5 @@
     <string name="default_notification_channel_name">My Channel</string>
     <string name="default_notification_channel_description">Default Channel for Notifications</string>
     <string name="search">Search</string>
+    <string name="other_functions_drawer">Other functions</string>
 </resources>
