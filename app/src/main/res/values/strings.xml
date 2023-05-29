@@ -34,4 +34,5 @@
     <string name="search">Search</string>
     <string name="display_train_name">Display Train Name</string>
     <string name="display_train_desc_name">Display Train Desc Name</string>
+    <string name="other_functions_drawer" />
 </resources>

@@ -1,4 +1,6 @@
+
 package com.example.coursework.screens.adding
+
 
 import android.annotation.SuppressLint
 import android.app.AlarmManager
@@ -11,8 +13,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,7 +24,6 @@ import com.example.coursework.MainActivity
 import com.example.coursework.R
 import com.example.coursework.databinding.AddedTrainDetailsBinding
 import com.example.coursework.repositories.OwnTrain.OwnTrainInfo
-import com.example.coursework.repositories.OwnTrain.TrainRepository
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -73,8 +72,9 @@ class AddedTrainDetails : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val trainCode = arguments?.getString("trainCode")
-        val trainReference = FirebaseDatabase.getInstance().getReference("trainings")
-            .orderByChild("trainCode").equalTo(trainCode)
+        val trainReference =
+            FirebaseDatabase.getInstance().getReference("trainings").orderByChild("trainCode")
+                .equalTo(trainCode)
         trainReference.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 for (childSnapshot in dataSnapshot.children) {
@@ -85,6 +85,7 @@ class AddedTrainDetails : Fragment() {
                     }
                 }
             }
+
             override fun onCancelled(databaseError: DatabaseError) {
                 Toast.makeText(requireContext(), "Error", Toast.LENGTH_SHORT).show()
             }
@@ -165,11 +166,7 @@ class AddedTrainDetails : Fragment() {
             notificationIntent,
             PendingIntent.FLAG_IMMUTABLE
         )
-        alarmManager.setExactAndAllowWhileIdle(
-            AlarmManager.RTC_WAKEUP,
-            timeInMillis,
-            pendingNotificationIntent
-        )
+        alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP,timeInMillis,pendingNotificationIntent)
     }
 
     private fun formatDate(timeInMillis: Long): String {
