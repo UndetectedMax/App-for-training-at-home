@@ -4,20 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_green">
+    android:theme="@style/ElementTheme">
 
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/train_edit_name"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="222dp"
         android:layout_height="64dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="16dp"
         android:hint="@string/display_train_name"
-        android:textColorHint="@color/black"
-        app:boxBackgroundColor="@color/white"
         app:endIconMode="custom"
         app:layout_constraintBottom_toTopOf="@+id/train_edit_desc"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,22 +25,18 @@
             android:id="@+id/inputTrainName"
             android:layout_width="223dp"
             android:layout_height="58dp"
-            android:inputType="text"
-            android:textColor="@color/black" />
+            android:inputType="text" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/train_edit_desc"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="291dp"
         android:layout_height="208dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="176dp"
         android:layout_marginEnd="16dp"
         android:hint="@string/display_train_desc_name"
-        android:textColorHint="@color/black"
-        app:boxBackgroundColor="@color/white"
         app:endIconMode="custom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,9 +48,7 @@
             android:layout_width="293dp"
             android:layout_height="201dp"
             android:gravity="top|start"
-            android:inputType="text"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black" />
+            android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -67,10 +58,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="180dp"
         android:layout_marginEnd="16dp"
-        android:backgroundTint="@color/lilac"
         android:text="@string/set_changes"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -86,9 +74,6 @@
         android:layout_marginTop="180dp"
         android:layout_marginEnd="16dp"
         android:text="@string/delete_train"
-        android:backgroundTint="@color/lilac"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

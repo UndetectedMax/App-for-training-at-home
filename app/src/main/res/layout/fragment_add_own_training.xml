@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_green"
+    android:theme="@style/ElementTheme"
     tools:context=".screens.adding.AddOwnTraining">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -50,7 +50,6 @@
         android:layout_width="255dp"
         android:layout_height="57dp"
         android:layout_marginTop="512dp"
-        android:backgroundTint="@color/lilac"
         android:text="@string/submit_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

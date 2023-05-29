@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_green"
+    android:theme="@style/ElementTheme"
     tools:context=".screens.settings.Settings">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -26,7 +26,6 @@
             android:background="@drawable/text_border"
             android:hint="@string/display_user_email"
             android:padding="24dp"
-            android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -56,13 +55,10 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/name"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:hint="@string/display_user_name"
-            android:textColorHint="@color/black"
-            app:boxBackgroundColor="@color/white"
             app:endIconDrawable="@drawable/ic_save"
             app:endIconMode="custom"
             app:layout_constraintEnd_toEndOf="parent"
@@ -73,7 +69,7 @@
                 android:id="@+id/updateUserName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black" />
+                tools:ignore="VisualLintTextFieldSize" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
@@ -97,7 +93,7 @@
         android:id="@+id/pageProgress"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:background="@color/design_default_color_primary"
+        android:theme="@style/ElementTheme"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -106,10 +102,13 @@
 
     <TextView
         android:id="@+id/themePreference"
-        android:layout_width="408dp"
-        android:layout_height="37dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/text_border"
+        android:padding="8dp"
         android:text=""
-        app:boxBackgroundColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -118,9 +117,13 @@
 
     <TextView
         android:id="@+id/notifications"
-        android:layout_width="405dp"
-        android:layout_height="33dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/text_border"
+        android:padding="8dp"
         android:text="@string/settings_notifications"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.489"

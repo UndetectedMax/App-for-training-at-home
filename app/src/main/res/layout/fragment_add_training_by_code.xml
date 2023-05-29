@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_green"
+    android:theme="@style/ElementTheme"
     tools:context=".screens.adding.AddTrainingByCode">
 
 
@@ -13,7 +13,6 @@
         android:layout_width="178dp"
         android:layout_height="52dp"
         android:layout_marginTop="256dp"
-        android:backgroundTint="@color/lilac"
         android:text="@string/submit_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,8 +29,6 @@
         android:hint="@string/enter_code_here"
         android:inputType="number"
         android:padding="8dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
