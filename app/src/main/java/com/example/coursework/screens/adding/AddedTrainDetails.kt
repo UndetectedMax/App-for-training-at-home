@@ -1,6 +1,4 @@
-
 package com.example.coursework.screens.adding
-
 
 import android.annotation.SuppressLint
 import android.app.AlarmManager
@@ -13,10 +11,12 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
@@ -138,6 +138,29 @@ class AddedTrainDetails : Fragment() {
         val notificationText =
             String.format("Train Code: %s\nDate: %s", trainCode, formatDate(timeInMillis))
 
+        // Check if notifications are enabled for the app
+        if (notificationManager.areNotificationsEnabled()) {
+            createNotification(timeInMillis, notificationTitle, notificationText)
+        } else {
+            showEnableNotificationsDialog()
+        }
+    }
+
+    private fun showEnableNotificationsDialog() {
+        AlertDialog.Builder(requireContext())
+            .setTitle("Notifications Disabled")
+            .setMessage("Please enable notifications for this app to receive reminders.")
+            .setPositiveButton("Enable") { _, _ ->
+                // app settings notifications enabled
+                val intent = Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS)
+                intent.putExtra(Settings.EXTRA_APP_PACKAGE, requireActivity().packageName)
+                startActivity(intent)
+            }
+            .setNegativeButton("Cancel", null)
+            .show()
+    }
+
+    private fun createNotification(timeInMillis: Long, title: String, text: String) {
         // Create an intent to open the activity when the notification is clicked
         val intent = Intent(requireContext(), MainActivity::class.java)
         val pendingIntent = PendingIntent.getActivity(
@@ -149,8 +172,8 @@ class AddedTrainDetails : Fragment() {
 
         // Create the notification
         val notification = NotificationCompat.Builder(requireContext(), CHANNEL_ID)
-            .setContentTitle(notificationTitle)
-            .setContentText(notificationText)
+            .setContentTitle(title)
+            .setContentText(text)
             .setSmallIcon(R.drawable.ic_notification)
             .setContentIntent(pendingIntent)
             .setAutoCancel(true)
@@ -176,7 +199,6 @@ class AddedTrainDetails : Fragment() {
         val dateFormat = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault())
         return dateFormat.format(calendar.time)
     }
-
 
     companion object {
         private const val CHANNEL_ID = "MyNotificationChannel"

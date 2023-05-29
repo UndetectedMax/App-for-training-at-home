@@ -35,5 +35,6 @@
     <string name="display_train_name">Display Train Name</string>
     <string name="display_train_desc_name">Display Train Desc Name</string>
     <string name="other_functions_drawer">Other functions</string>
+    <string name="settings_notifications">Еnable or disable notifications</string>
 
 </resources>

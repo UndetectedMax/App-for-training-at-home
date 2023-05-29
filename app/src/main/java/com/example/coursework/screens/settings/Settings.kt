@@ -1,20 +1,20 @@
 package com.example.coursework.screens.settings
 
-
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
+import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
+import android.provider.Settings
 import android.text.TextUtils
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.isVisible
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.coursework.MainActivity
 import com.example.coursework.databinding.FragmentSettingsBinding
 import com.example.coursework.repositories.User.UserInfo
@@ -35,22 +35,16 @@ class Settings : Fragment() {
     private val repository = UserRepository()
 
     private lateinit var currentUser: UserInfo
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentSettingsBinding.inflate(layoutInflater, container, false)
-        val settingsItem = ArrayList<String>(
-            listOf(
-                "Change the application language",
-                "Change application background",
-                "Change application theme"
-            )
-        )
-        val recyclerView: RecyclerView = binding.settingsRecyclerView
-        recyclerView.layoutManager = LinearLayoutManager(this.context)
-        recyclerView.adapter = SettingsAdapter(settingsItem, this.requireContext())
+        val currentTheme = getSelectedTheme()
+        binding.themePreference.text = "App theme now: ${currentTheme}"
+
         return binding.root
     }
 
@@ -70,13 +64,30 @@ class Settings : Fragment() {
             AlertDialog.Builder(requireContext())
                 .setTitle("You have pressed the logout button")
                 .setMessage("Are you sure you want to logout?")
-                .setNegativeButton("No,I don`t want", null)
-                .setPositiveButton("Yes,I am really sure") { _, _ ->
+                .setNegativeButton("No, I don't want", null)
+                .setPositiveButton("Yes, I am really sure") { _, _ ->
                     FirebaseAuth.getInstance().signOut()
                     googleSignInClient.signOut()
                     startActivity(Intent(requireContext(), MainActivity::class.java))
                     requireActivity().finish()
                 }
+                .show()
+        }
+
+        binding.themePreference.setOnClickListener {
+            showThemeDialog()
+        }
+        binding.notifications.setOnClickListener {
+            AlertDialog.Builder(requireContext())
+                .setTitle("Notifications Disabled")
+                .setMessage("Please enable notifications for this app to receive reminders.")
+                .setPositiveButton("Enable") { _, _ ->
+                    // app settings notifications enabled
+                    val intent = Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS)
+                    intent.putExtra(Settings.EXTRA_APP_PACKAGE, requireActivity().packageName)
+                    startActivity(intent)
+                }
+                .setNegativeButton("Cancel", null)
                 .show()
         }
     }
@@ -172,4 +183,39 @@ class Settings : Fragment() {
                 }
             }
         }
+
+    private fun showThemeDialog() {
+        val themes = arrayOf(
+            "Light",
+            "Dark",
+            "System default"
+        )
+        val checkedItem = when (binding.themePreference.text.toString()) {
+            "Light" -> 0
+            "Dark" -> 1
+            else -> 2
+        }
+
+        AlertDialog.Builder(requireContext())
+            .setTitle("Select Application Theme")
+            .setSingleChoiceItems(themes, checkedItem) { dialog, which ->
+                val selectedTheme = when (which) {
+                    0 -> AppCompatDelegate.MODE_NIGHT_NO
+                    1 -> AppCompatDelegate.MODE_NIGHT_YES
+                    else -> AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
+                }
+                AppCompatDelegate.setDefaultNightMode(selectedTheme)
+                dialog.dismiss()
+            }
+            .setNegativeButton("Cancel", null)
+            .show()
+    }
+
+    private fun getSelectedTheme(): String {
+        return when (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
+            Configuration.UI_MODE_NIGHT_NO -> "Light"
+            Configuration.UI_MODE_NIGHT_YES -> "Dark"
+            else -> "System default"
+        }
+    }
 }
