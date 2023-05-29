@@ -14,8 +14,9 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
-class AddedTrainDetailsEdit: Fragment() {
+class AddedTrainDetailsEdit : Fragment() {
     private lateinit var binding: AddedTrainDetailsEditBinding
+
     @SuppressLint("ObsoleteSdkInt")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,6 +25,7 @@ class AddedTrainDetailsEdit: Fragment() {
         binding = AddedTrainDetailsEditBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val trainCode = arguments?.getString("trainCode")
         val trainReference = FirebaseDatabase.getInstance().getReference("trainings")
@@ -38,6 +40,7 @@ class AddedTrainDetailsEdit: Fragment() {
                     }
                 }
             }
+
             override fun onCancelled(databaseError: DatabaseError) {
                 Toast.makeText(requireContext(), "Error", Toast.LENGTH_SHORT).show()
             }
