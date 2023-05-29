@@ -84,5 +84,5 @@
     <fragment
         android:id="@+id/addedTrainDetailsEdit2"
         android:name="com.example.coursework.screens.adding.AddedTrainDetailsEdit"
-        android:label="AddedTrainDetailsEdit" />
+        android:label="Edit training" />
 </navigation>

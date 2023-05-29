@@ -22,7 +22,6 @@ class AddedTrainDetailsEdit: Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = AddedTrainDetailsEditBinding.inflate(layoutInflater, container, false)
-
         return binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
