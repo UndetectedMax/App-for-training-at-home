@@ -60,6 +60,7 @@ class Settings : Fragment() {
         }
         val googleSignInClient =
             GoogleSignIn.getClient(requireContext(), GoogleSignInOptions.DEFAULT_SIGN_IN)
+        //Logout function
         binding.logoutButton.setOnClickListener {
             AlertDialog.Builder(requireContext())
                 .setTitle("You have pressed the logout button")
@@ -73,10 +74,11 @@ class Settings : Fragment() {
                 }
                 .show()
         }
-
+        // Theme changing
         binding.themePreference.setOnClickListener {
             showThemeDialog()
         }
+        // Notifications in settings
         binding.notifications.setOnClickListener {
             AlertDialog.Builder(requireContext())
                 .setTitle("Notifications Disabled")
