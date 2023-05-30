@@ -10,6 +10,10 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.coursework.R
 import com.example.coursework.databinding.FragmentAddTrainingByCodeBinding
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 @SuppressLint("SetTextI18n")
 class AddTrainingByCode : Fragment(R.layout.fragment_add_training_by_code) {
@@ -28,11 +32,32 @@ class AddTrainingByCode : Fragment(R.layout.fragment_add_training_by_code) {
                 ).show()
             } else {
                 val trainCode = binding.enterCodeText.text.toString()
-                val args = Bundle()
-                args.putString("trainCode", trainCode)
-                findNavController().navigate(
-                    R.id.action_addTrainingByCode_to_addedTrainDetails, args
-                )
+                val query = FirebaseDatabase.getInstance().getReference("trainings")
+                    .orderByChild("trainCode")
+                    .equalTo(trainCode)
+
+                query.addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        if (snapshot.exists()) {
+                            val args = Bundle()
+                            args.putString("trainCode", trainCode)
+                            findNavController().navigate(
+                                R.id.action_addTrainingByCode_to_addedTrainDetails, args
+                            )
+                        } else {
+                            Toast.makeText(
+                                requireContext(),
+                                "This train does not exist!",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                        Toast.makeText(requireContext(), "Error occurred", Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                })
             }
         }
         return binding.root
