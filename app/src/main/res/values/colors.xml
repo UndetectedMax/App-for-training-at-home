@@ -9,11 +9,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="grey_300">#B3B1B1</color>
-    <color name="light_green">#74c276</color>
-    <color name="lilac">#7674c2</color>
-    <color name="purple_300">#9575cd</color>
-    <color name="pastel_purple">#acabda</color>
-    <color name="pastel_yellow">#d9daab</color>
     <color name="grey">#878787</color>
     <color name='green_500'>#4CAF50</color>
     <color name='green_100'>#C8E6C9</color>
@@ -23,5 +18,4 @@
     <color name='grey_800'>#212121</color>
     <color name='grey_600'>#757575</color>
     <color name='grey_400'>#BDBDBD</color>
-    <color name='blue_grey_400'>#78909c</color>
 </resources>
