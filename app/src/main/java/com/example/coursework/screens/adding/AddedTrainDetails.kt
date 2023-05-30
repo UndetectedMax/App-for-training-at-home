@@ -56,7 +56,6 @@ class AddedTrainDetails : Fragment() {
 
             // Configure notification channel attributes
             channel.description = "Channel Description"
-            // Other notification channel settings such as sound and vibration can be set here
 
             // Register the notification channel with the NotificationManager
             val notificationManager =
@@ -133,17 +132,16 @@ class AddedTrainDetails : Fragment() {
 
     @SuppressLint("MissingPermission", "ObsoleteSdkInt")
     private fun setNotification(timeInMillis: Long) {
-        val notificationTitle = "You have a planned train"
+        val notificationTitle = "The time for train has come"
         val trainCode = arguments?.getString("trainCode")
         val notificationText =
             String.format("Train Code: %s\nDate: %s", trainCode, formatDate(timeInMillis))
 
         // Check if notifications are enabled for the app
-        if (notificationManager.areNotificationsEnabled()) {
-            createNotification(timeInMillis, notificationTitle, notificationText)
-        } else {
+        if (!notificationManager.areNotificationsEnabled()) {
             showEnableNotificationsDialog()
         }
+        createNotification(timeInMillis, notificationTitle, notificationText)
     }
 
     private fun showEnableNotificationsDialog() {
@@ -167,7 +165,7 @@ class AddedTrainDetails : Fragment() {
             requireContext(),
             REQUEST_CODE,
             intent,
-            PendingIntent.FLAG_IMMUTABLE // Use FLAG_IMMUTABLE or FLAG_MUTABLE here
+            PendingIntent.FLAG_IMMUTABLE
         )
 
         // Create the notification

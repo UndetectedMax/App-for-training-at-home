@@ -3,7 +3,6 @@ package com.example.coursework.screens.settings
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
-import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
@@ -13,7 +12,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.isVisible
 import com.example.coursework.MainActivity
 import com.example.coursework.databinding.FragmentSettingsBinding
@@ -36,8 +34,6 @@ class Settings : Fragment() {
 
     private lateinit var currentUser: UserInfo
 
-    private var currentTheme: Int = 0
-    private var themeChanged: Boolean = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,15 +41,6 @@ class Settings : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentSettingsBinding.inflate(layoutInflater, container, false)
-        currentTheme = getSelectedTheme()
-        AppCompatDelegate.setDefaultNightMode(currentTheme)
-        val theme = when (currentTheme) {
-            AppCompatDelegate.MODE_NIGHT_NO -> "Light"
-            AppCompatDelegate.MODE_NIGHT_YES -> "Dark"
-            else -> "SystemDefault"
-        }
-        binding.themePreference.text = "App theme now: $theme"
-
         return binding.root
     }
 
@@ -67,6 +54,7 @@ class Settings : Fragment() {
                 }
             })
         }
+
         val googleSignInClient =
             GoogleSignIn.getClient(requireContext(), GoogleSignInOptions.DEFAULT_SIGN_IN)
         //Logout function
@@ -82,10 +70,6 @@ class Settings : Fragment() {
                     requireActivity().finish()
                 }
                 .show()
-        }
-        // Theme changing
-        binding.themePreference.setOnClickListener {
-            showThemeDialog()
         }
         // Notifications in settings
         binding.notifications.setOnClickListener {
@@ -194,43 +178,4 @@ class Settings : Fragment() {
                 }
             }
         }
-
-    private fun showThemeDialog() {
-        val themes = arrayOf(
-            "Light",
-            "Dark",
-            "System default"
-        )
-        val checkedItem = when (binding.themePreference.text.toString()) {
-            "App theme now: Light" -> 0
-            "App theme now: Dark" -> 1
-            else -> 2
-        }
-
-        AlertDialog.Builder(requireContext())
-            .setTitle("Select Application Theme")
-            .setSingleChoiceItems(themes, checkedItem) { dialog, which ->
-                val selectedTheme = when (which) {
-                    0 -> AppCompatDelegate.MODE_NIGHT_NO
-                    1 -> AppCompatDelegate.MODE_NIGHT_YES
-                    else -> AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
-                }
-                if (currentTheme != selectedTheme) {
-                    currentTheme = selectedTheme
-                    themeChanged = true
-                    AppCompatDelegate.setDefaultNightMode(currentTheme)
-                }
-                dialog.dismiss()
-            }
-            .setNegativeButton("Cancel", null)
-            .show()
-    }
-
-    private fun getSelectedTheme(): Int {
-        return when (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
-            Configuration.UI_MODE_NIGHT_NO -> AppCompatDelegate.MODE_NIGHT_NO
-            Configuration.UI_MODE_NIGHT_YES -> AppCompatDelegate.MODE_NIGHT_YES
-            else -> AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
-        }
-    }
 }
