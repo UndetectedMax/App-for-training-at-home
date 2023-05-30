@@ -60,7 +60,7 @@ class LoginFragment : Fragment() {
         val signIn = AuthUI.getInstance()
             .createSignInIntentBuilder()
             .setAvailableProviders(providers)
-            .setLogo(R.mipmap.ic_launcher)
+            .setLogo(R.drawable.icon_app)
             .setIsSmartLockEnabled(false)
             .setTosAndPrivacyPolicyUrls(
                 "https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwidjanP4Nn-AhXv-yoKHersBvMQwqsBegQIDhAF&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DdQw4w9WgXcQ&usg=AOvVaw0aHtehaphMhOCAkCydRLZU",
