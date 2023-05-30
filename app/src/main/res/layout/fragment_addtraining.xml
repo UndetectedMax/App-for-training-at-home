@@ -11,10 +11,10 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/trainRwAdd"
-        android:layout_width="411dp"
-        android:layout_height="600dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="128dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,14 +23,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
-        android:layout_margin="16dp"
-        android:layout_marginTop="12dp"
-
+        android:layout_marginStart="256dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="64dp"
         android:contentDescription="@string/add_own_train"
         android:text="@string/add_own_train"
         app:icon="@drawable/ic_add"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.926"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/trainRwAdd" />
 
@@ -39,13 +38,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
-        android:layout_margin="16dp"
+        android:layout_marginStart="256dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="8dp"
         android:contentDescription="@string/add_train_by_code"
         android:text="@string/add_train_by_code"
         app:icon="@drawable/ic_add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.926"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/extendedFABAddOwnTrain" />
 </androidx.constraintlayout.widget.ConstraintLayout>

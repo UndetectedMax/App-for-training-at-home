@@ -14,7 +14,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:text="@string/train_name"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -26,6 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="4dp"
             android:text="@string/author"
             android:textSize="12sp" />
 
@@ -33,6 +35,8 @@
             android:id="@+id/train_code"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
             android:text="@string/train_code"
             android:textSize="12sp" />
     </androidx.appcompat.widget.LinearLayoutCompat>

@@ -23,6 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="top"
+            android:inputType="textMultiLine"
             android:minLines="2" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -42,6 +43,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="top"
+            android:inputType="textMultiLine"
+            android:maxLines="16"
             android:minLines="7" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -56,6 +59,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/own_train_name"
         app:layout_constraintVertical_bias="0.0" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
