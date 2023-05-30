@@ -14,7 +14,6 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import com.example.coursework.databinding.ActivityMainBinding
 import com.example.coursework.repositories.User.UserInfo
 import com.example.coursework.repositories.User.UserRepository
@@ -92,19 +91,23 @@ class MainActivity : AppCompatActivity() {
             R.id.logout_icon -> {
                 val googleSignInClient =
                     GoogleSignIn.getClient(this, GoogleSignInOptions.DEFAULT_SIGN_IN)
-                    AlertDialog.Builder(this)
-                        .setTitle("You have pressed the logout button")
-                        .setMessage("Are you sure you want to logout?")
-                        .setNegativeButton("No,I don`t want", null)
-                        .setPositiveButton("Yes,I am really sure") { _, _ ->
-                            FirebaseAuth.getInstance().signOut()
-                            googleSignInClient.signOut()
-                            startActivity(Intent(this, MainActivity::class.java))
-                            this.finish()
-                        }
-                        .show()
+                AlertDialog.Builder(this)
+                    .setTitle("You have pressed the logout button")
+                    .setMessage("Are you sure you want to logout?")
+                    .setNegativeButton("No,I don`t want", null)
+                    .setPositiveButton("Yes,I am really sure") { _, _ ->
+                        FirebaseAuth.getInstance().signOut()
+                        googleSignInClient.signOut()
+                        startActivity(Intent(this, MainActivity::class.java))
+                        this.finish()
+                    }
+                    .show()
 
                 return true
+            }
+
+            else -> {
+                drawerLayout.closeDrawer(binding.drawer)
             }
         }
         return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
