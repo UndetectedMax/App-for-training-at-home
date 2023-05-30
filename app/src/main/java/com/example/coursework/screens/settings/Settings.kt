@@ -36,6 +36,7 @@ class Settings : Fragment() {
 
     private lateinit var currentUser: UserInfo
 
+    private var currentTheme: Int = 0
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -43,6 +44,7 @@ class Settings : Fragment() {
     ): View {
         binding = FragmentSettingsBinding.inflate(layoutInflater, container, false)
         val currentTheme = getSelectedTheme()
+        AppCompatDelegate.setDefaultNightMode(currentTheme)
         binding.themePreference.text = "App theme now: ${currentTheme}"
 
         return binding.root
@@ -207,17 +209,18 @@ class Settings : Fragment() {
                     else -> AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
                 }
                 AppCompatDelegate.setDefaultNightMode(selectedTheme)
+                currentTheme = selectedTheme
                 dialog.dismiss()
             }
             .setNegativeButton("Cancel", null)
             .show()
     }
 
-    private fun getSelectedTheme(): String {
+    private fun getSelectedTheme(): Int {
         return when (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
-            Configuration.UI_MODE_NIGHT_NO -> "Light"
-            Configuration.UI_MODE_NIGHT_YES -> "Dark"
-            else -> "System default"
+            Configuration.UI_MODE_NIGHT_NO -> AppCompatDelegate.MODE_NIGHT_NO
+            Configuration.UI_MODE_NIGHT_YES -> AppCompatDelegate.MODE_NIGHT_YES
+            else -> AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
         }
     }
 }
