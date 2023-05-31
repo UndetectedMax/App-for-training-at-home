@@ -168,6 +168,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="@string/maxm13052004_gmail_com"
+            android:autoLink="all"
             android:textSize="14sp" />
 
         <TextView
@@ -184,6 +185,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="@string/vitaliys13_11_gmail_com"
+            android:autoLink="all"
             android:textSize="14sp" />
 
         <TextView
@@ -201,6 +203,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="4dp"
             android:text="@string/tg_group_link"
+            android:autoLink="all"
             android:textSize="16sp" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 </androidx.constraintlayout.widget.ConstraintLayout>
