@@ -125,5 +125,17 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
         app:layout_constraintVertical_bias="0.073" />
 
+    <TextView
+        android:id="@+id/tg_group"
+        android:layout_width="369dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/click_to_enter_telegram_group"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/notifications"
+        app:layout_constraintVertical_bias="0.006" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

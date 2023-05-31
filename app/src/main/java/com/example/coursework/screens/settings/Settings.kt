@@ -85,6 +85,20 @@ class Settings : Fragment() {
                 .setNegativeButton("Cancel", null)
                 .show()
         }
+        binding.tgGroup.setOnClickListener {
+            AlertDialog.Builder(requireContext())
+                .setTitle("Join Telegram Group")
+                .setMessage("Would you like to join our Telegram group?")
+                .setPositiveButton("Yes") { _, _ ->
+                    // Открыть ссылку в Telegram
+                    val telegramGroupUrl = "https://t.me/+uixr4vhWOnE1OTJi"
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(telegramGroupUrl))
+                    startActivity(intent)
+                }
+                .setNegativeButton("No", null)
+                .show()
+        }
+
     }
 
     private fun showDetails(currentUser: UserInfo, it: FirebaseUser) {

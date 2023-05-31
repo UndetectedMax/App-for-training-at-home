@@ -38,4 +38,5 @@
     <string name="settings_notifications">Еnable or disable notifications</string>
     <string name="set_changes">Set changes!</string>
     <string name="delete_train">Delete train!</string>
+    <string name="click_to_enter_telegram_group">Click to enter telegram group!</string>
 </resources>
