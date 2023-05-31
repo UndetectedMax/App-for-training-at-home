@@ -14,7 +14,12 @@
     <color name='green_100'>#C8E6C9</color>
     <color name='green_700'>#388E3C</color>
     <color name='green_800'>#2e7d32</color>
-    <color name='deep_purple_a200'>#7C4DFF</color>
+    <color name='green_900'>#1b5e20</color>
+    <color name='deep_purple_a200'>#b39ddb</color>
+    <color name='deep_purple_200'>#9575cd</color>
+    <color name='deep_purple_400'>#7e57c2</color>
+    <color name='deep_purple_600'>#5e35b1</color>
+    <color name='yellow_500'>#ffeb3b</color>
     <color name='grey_800'>#212121</color>
     <color name='grey_600'>#757575</color>
     <color name='grey_400'>#BDBDBD</color>
