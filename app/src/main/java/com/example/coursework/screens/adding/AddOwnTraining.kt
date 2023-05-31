@@ -25,11 +25,15 @@ class AddOwnTraining : Fragment() {
 
         firebaseAuth = FirebaseAuth.getInstance()
         binding.ownTrainSubmit.setOnClickListener {
-            repository.createOrUpdateTrain(getInfoForTraining())
-            findNavController().navigate(R.id.action_addOwnTraining_to_add_training_icon)
+            if (binding.ownTrainName.editText?.text.toString().isNotBlank() || binding.ownTrainDescription.editText?.text.toString().isNotBlank()
+            ) {
+                repository.createOrUpdateTrain(getInfoForTraining())
+                findNavController().navigate(R.id.action_addOwnTraining_to_add_training_icon)
+            }
         }
         return binding.root
     }
+
     private fun getInfoForTraining(): OwnTrainInfo {
         val trainCode = Random.nextInt(1000000000).toString()
         val author = firebaseAuth.currentUser?.email.toString()
