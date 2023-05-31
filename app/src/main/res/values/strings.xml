@@ -38,5 +38,12 @@
     <string name="settings_notifications">Еnable or disable notifications</string>
     <string name="set_changes">Set changes!</string>
     <string name="delete_train">Delete train!</string>
-    <string name="click_to_enter_telegram_group">Click to enter telegram group!</string>
+    <string name="tg_group_link">Be in form! (support and questions)</string>
+    <string name="contact_with_developers">Contacts with developers</string>
+    <string name="email">Email:</string>
+    <string name="telegram_group">Telegram group (active link):</string>
+    <string name="vitaliys13_11_gmail_com">vitaliys13.11@gmail.com</string>
+    <string name="vitalii_samsonov">Vitalii Samsonov</string>
+    <string name="maxm13052004_gmail_com">maxm13052004@gmail.com</string>
+    <string name="maksym_miroshnichenko">Maksym Miroshnichenko</string>
 </resources>
