@@ -14,6 +14,7 @@ import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
 import com.example.coursework.MainActivity
+import com.example.coursework.R
 import com.example.coursework.databinding.FragmentSettingsBinding
 import com.example.coursework.repositories.User.UserInfo
 import com.example.coursework.repositories.User.UserRepository
@@ -107,6 +108,13 @@ class Settings : Fragment() {
         currentUser.photo?.let {
             if (it.isNotEmpty()) {
                 Picasso.get().load(currentUser.photo.toString()).into(binding.userPhoto)
+            }
+        }
+
+        currentUser.photo?.let{
+            if(it.isNotEmpty()) {
+                Picasso.get().load(it).placeholder(R.drawable.baseline_verified_user_24)
+                    .into(binding.userPhoto)
             }
         }
 
