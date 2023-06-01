@@ -63,6 +63,7 @@ class AddedTrainDetailsEdit : Fragment() {
                 val train = getTrainInfo(trainCode.toString())
                 // Обновление тренировки в Firebase
                 TrainRepository().createOrUpdateTrain(train)
+                findNavController().popBackStack()
             }
         }
 

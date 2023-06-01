@@ -118,6 +118,7 @@ class AddedTrainDetails : Fragment() {
                             selectedTimeInMillis = it.timeInMillis
                             // Set the notification for the selected date and time
                             setNotification(selectedTimeInMillis)
+
                         }
                     },
                     currentDate.get(Calendar.HOUR_OF_DAY),
@@ -133,18 +134,28 @@ class AddedTrainDetails : Fragment() {
         datePickerDialog.show()
     }
 
-    @SuppressLint("MissingPermission", "ObsoleteSdkInt")
     private fun setNotification(timeInMillis: Long) {
-        val notificationTitle = "The time for train has come"
-        val trainCode = arguments?.getString("trainCode")
+        val trainName = binding.addedTrainName.text.toString()
+        val notificationTitle = "The time for train has come!"
         val notificationText =
-            String.format("Train Code: %s\nDate: %s", trainCode, formatDate(timeInMillis))
-
+            String.format(
+                "Train Name: %s\nTime: %s Date: %s ",
+                trainName,
+                formatTime(timeInMillis),
+                formatDate(timeInMillis)
+            )
+        val toast = String.format(
+            "%s" + " on %s",
+            formatDate(timeInMillis),
+            formatTime(timeInMillis)
+        )
         // Check if notifications are enabled for the app
         if (!notificationManager.areNotificationsEnabled()) {
             showEnableNotificationsDialog()
         }
         createNotification(timeInMillis, notificationTitle, notificationText)
+        //text info about the train
+        Toast.makeText(requireContext(), "You have planned a train on $toast", Toast.LENGTH_LONG).show()
     }
 
     private fun showEnableNotificationsDialog() {
@@ -190,7 +201,11 @@ class AddedTrainDetails : Fragment() {
             notificationIntent,
             PendingIntent.FLAG_IMMUTABLE
         )
-        alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP,timeInMillis,pendingNotificationIntent)
+        alarmManager.setExactAndAllowWhileIdle(
+            AlarmManager.RTC_WAKEUP,
+            timeInMillis,
+            pendingNotificationIntent
+        )
     }
 
     private fun formatDate(timeInMillis: Long): String {
@@ -199,6 +214,14 @@ class AddedTrainDetails : Fragment() {
 
         val dateFormat = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault())
         return dateFormat.format(calendar.time)
+    }
+
+    private fun formatTime(timeInMillis: Long): String {
+        val calendar = Calendar.getInstance()
+        calendar.timeInMillis = timeInMillis
+
+        val timeFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
+        return timeFormat.format(calendar.time)
     }
 
     companion object {

@@ -11,7 +11,7 @@ import androidx.core.app.NotificationManagerCompat
 class NotificationBroadcastReceiver : BroadcastReceiver() {
     @SuppressLint("MissingPermission")
     override fun onReceive(context: Context, intent: Intent) {
-        Toast.makeText(context, "Train has planned!", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "Time to train!", Toast.LENGTH_SHORT).show()
         val notification = intent.getParcelableExtra<Notification>(KEY_NOTIFICATION)
         val notificationManager = NotificationManagerCompat.from(context)
         notification?.let { notificationManager.notify(NOTIFICATION_ID, it) }

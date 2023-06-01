@@ -82,7 +82,8 @@ class MainActivity : AppCompatActivity() {
         userEmail.text = it.email
         currentUser.photo?.let {
             if (it.isNotEmpty()) {
-                Picasso.get().load(currentUser.photo.toString()).into(userAvatar)
+                Picasso.get().load(it).placeholder(R.drawable.baseline_verified_user_24)
+                    .into(userAvatar)
             }
         }
     }
